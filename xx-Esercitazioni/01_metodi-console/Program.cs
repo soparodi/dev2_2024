@@ -6,7 +6,7 @@ questo è un commento a riga multipla
 
 // il metodo Console.Writeline stampa a video il testo passato come argomento
 Console.WriteLine("Ciao!"); // questo è un commento a fine riga
-Console.WriteLine(".");
+
 // il metodo Console.Readline legge una riga di testo da tastiera
 Console.WriteLine("Inserisci il tuo nome");
 string nome = Console.ReadLine(); // legge una riga di testo e la assegna alla variabile nome
@@ -46,4 +46,3 @@ il metodo ToLower() trasforma una riga in minuscolo
 ho provato ad utilizzare la variabile intera direttamente ma mi ha dato errore perché doveva esserea convertita in stringa
 ho utilzzato il metodo To String() per convertire un intero in una stringa e l'ho interpolata
 */
-// modificato
