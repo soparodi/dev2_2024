@@ -61,7 +61,7 @@ numeri3.Add(40);
 numeri3.Add(50);
 
 // inserimento di valori multipli nella lista
-List<int> numeri3 = new List<int> {10,20,30,40,50}; // dichiarazione e inizializzazione di una lista di interi di 5 elementi
+List<int> numeri4 = new List<int> {10,20,30,40,50}; // dichiarazione e inizializzazione di una lista di interi di 5 elementi
 
 // sia le liste che gli array sono collezioni di dati che possono essere di Int, Double, Char, String, ecc.
 // esempio di lista di string
@@ -74,3 +74,5 @@ Dictionary<string, int> voti = new Dictionary<string, int>(); // dichiarazione d
 // BEST PRACTICES PER LA DICHIARAZIONE DELLE VARIABILI
 // dichiarare le variabili con nomi significativi
 // dichiarare le variabili con la notazione CamelCase o PascalCase
+// esempio CamelCase etaStudente
+// esempio PascalCase EtaStudente
