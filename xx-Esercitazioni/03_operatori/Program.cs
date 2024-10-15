@@ -62,7 +62,7 @@ u -= 5; //u = u - 5
 Console.WriteLine(u); // 10
 
 //ESEMPIO DI OPERATORI DI INCREMENTO E DECREMENTO
-int V = 10;
+int v = 10;
 v++; // v = v + 1
 Console.WriteLine(v); // 11
 v--; // v = v - 1
