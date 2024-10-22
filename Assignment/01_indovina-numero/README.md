@@ -82,5 +82,5 @@ while (numeroInserito != numeroDaIndovinare)
     
 }
 
-Console.WriteLine("Hai indovinato! Il numero da indovinare era: " + numeroDaIndovinare);
+Console.WriteLine($"Hai indovinato! Il numero da indovinare era: {numeroDaIndovinare}");
 ```
