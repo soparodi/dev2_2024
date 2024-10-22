@@ -155,3 +155,104 @@ while (tentativiEffettuati < tentativiMassimi && !haIndovinato)
     }  
 }
 ```
+
+### Comandi versionamento
+
+```bash
+git add --all
+git commit -m "Indovina Numero: Versione 3"
+git push -u origin main
+```
+
+## Versione 4
+
+**Obiettivo:**  
+Assegna un punteggio all'utente in base al numero di tentativi utilizzati. Più tentativi impiega, minore sarà il punteggio.
+
+**Istruzioni:**
+
+* Inizia con un punteggio massimo (ad esempio, 100 punti).  
+* Ad ogni tentativo fallito, sottrai un certo numero di punti (ad esempio, 2 punti).  
+* Alla fine del gioco, mostra il punteggio all'utente.
+
+**Esempio di codice:**
+
+```csharp
+Random random = new Random();
+int numeroDaIndovinare = random.Next(1, 101);  
+int punteggio = 100;  
+bool haIndovinato = false;
+
+Console.WriteLine("Indovina il numero (tra 1 e 100). Punteggio massimo: 100 punti.");
+
+while (!haIndovinato && punteggio > 0)  
+{  
+    Console.Write("Tentativo: ");  
+    int numeroUtente = int.Parse(Console.ReadLine());  
+    punteggio -= 2;
+
+    if (numeroUtente < numeroDaIndovinare)  
+    {  
+        Console.WriteLine("Il numero da indovinare è maggiore.");  
+    }  
+    else if (numeroUtente > numeroDaIndovinare)  
+    {  
+        Console.WriteLine("Il numero da indovinare è minore.");  
+    }  
+    else  
+    {  
+        Console.WriteLine("Hai indovinato! Punteggio: " + punteggio);  
+        haIndovinato = true;  
+    }
+
+    if (!haIndovinato && punteggio == 0)  
+    {  
+        Console.WriteLine("Hai esaurito i tentativi. Il numero era " + numeroDaIndovinare + ".");  
+    }  
+}
+```
+
+oppure
+
+```csharp
+Random random = new Random(); // Random e la classe che genera numeri casuali
+int numeroDaIndovinare = random.Next(1, 101); // Next e il metodo che genera un numero casuale tra 1 e 100
+int punteggio = 20;
+bool haIndovinato = false;
+// int numeroInserito = 0;
+
+Console.Clear();
+
+Console.WriteLine("Indovina il numero (tra 1 e 100). Hai 5 tentativi: ");
+
+while (!haIndovinato)
+
+{
+    Console.WriteLine("Punteggio {0}: ", punteggio);
+
+    int numeroInserito = Convert.ToInt32(Console.ReadLine());
+
+    punteggio--;
+
+    if (numeroInserito < numeroDaIndovinare)
+    {
+        Console.WriteLine("Il numero da indovinare e' maggiore");
+    }
+    else if (numeroInserito > numeroDaIndovinare)
+    {
+        Console.WriteLine("Il numero da indovinare e' minore");
+
+        Console.WriteLine("Riprova: ");
+    }
+    else
+    {
+        Console.WriteLine("Hai indovinato");
+        haIndovinato = true;
+    }
+
+    if (punteggio == 0 && !haIndovinato)
+    {
+        Console.WriteLine($"Hai finito i punti. Il numero da indovinare era: {numeroDaIndovinare}");
+    }
+}
+```
