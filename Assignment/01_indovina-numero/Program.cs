@@ -1,21 +1,21 @@
-﻿Random random = new Random(); // Random e la classe che genera numeri casuali
-int numeroDaIndovinare = random.Next(1, 101); // Next e il metodo che genera un numero casuale tra 1 e 100
-int punteggio = 20;
+﻿Random random = new Random(); 
+int numeroDaIndovinare = random.Next(1, 51);
+int tentativi = 10;
 bool haIndovinato = false;
-// int numeroInserito = 0;
+
 
 Console.Clear();
 
-Console.WriteLine("Indovina il numero (tra 1 e 100). Hai 5 tentativi: ");
+Console.WriteLine("Indovina il numero (tra 1 e 50). Hai 10 tentativi: ");
 
-while (!haIndovinato)
+while (!haIndovinato && tentativi < 10)
 
 {
-    Console.WriteLine("Punteggio {0}: ", punteggio);
+    Console.WriteLine("Tentativo {0}: ", tentativi - 1);
 
     int numeroInserito = Convert.ToInt32(Console.ReadLine());
 
-    punteggio--;
+    tentativi--;
 
     if (numeroInserito < numeroDaIndovinare)
     {
@@ -33,7 +33,7 @@ while (!haIndovinato)
         haIndovinato = true;
     }
 
-    if (punteggio == 0 && !haIndovinato)
+    if (tentativi == 0 && !haIndovinato)
     {
         Console.WriteLine($"Hai finito i punti. Il numero da indovinare era: {numeroDaIndovinare}");
     }

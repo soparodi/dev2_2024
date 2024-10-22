@@ -256,3 +256,17 @@ while (!haIndovinato)
     }
 }
 ```
+
+## Versione 5
+* **Livelli di Difficoltà:** Permetti di scegliere all'utente tra diversi livelli di difficoltà che modificano il numero di punti sottratti o l'intervallo dei numeri o il numero di tentativi disponibili.
+
+**Istruzioni:**
+
+1. **Livelli di Difficoltà:**
+   * **Facile:** Numeri da 1 a 50, 10 tentativi.
+   * **Medio:** Numeri da 1 a 100, 7 tentativi.
+   * **Difficile:** Numeri da 1 a 200, 5 tentativi.
+
+```csharp
+
+```
