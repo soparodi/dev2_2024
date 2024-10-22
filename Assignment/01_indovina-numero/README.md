@@ -51,8 +51,6 @@ Modifica il programma precedente per fornire all'utente suggerimenti dopo ogni t
 
 > **Esempio di codice:**
 
-## Versione 2
-
 ```csharp
 Random random = new Random(); // Random e la classe che genera numeri casuali
 int numeroDaIndovinare = random.Next(1, 101); // Next e il metodo che genera un numero casuale tra 1 e 100
@@ -84,3 +82,15 @@ while (numeroInserito != numeroDaIndovinare)
 
 Console.WriteLine($"Hai indovinato! Il numero da indovinare era: {numeroDaIndovinare}");
 ```
+
+## Versione 3
+
+**Obiettivo**
+Imposta un numero massimo di tentativi (ad esempio 5). Se l'utente non indovina entro questi tentativi, il gioco termina.
+
+**Istruzioni**
+
+* Imposta una variabile booleana per tenere traccia se l'utente ha indovinato.
+* Mantieni un contatore di tentativi all'interno del ciclo while.
+* Dopo ogni tentativo, decrementa il numero di tentativi rimasti e informane l'utente.
+* Se i tentativi 
