@@ -1,4 +1,4 @@
-﻿Random random = new Random();
+﻿﻿Random random = new Random();
 int numeroDaIndovinare = 0;
 int punteggio = 0;
 bool haIndovinato = false;
@@ -22,10 +22,7 @@ do
     {
         Console.WriteLine("Scelta non valida.");
     }
-
-}
-
-while (scelta < 1 || scelta > 3);
+} while (scelta < 1 || scelta > 3);
 
 switch (scelta)
 {
@@ -59,7 +56,6 @@ while (!haIndovinato && tentativi > 0)
     if (!successo)
     {
         Console.WriteLine("Inserisci un numero valido.");
-
         continue;
     }
 
