@@ -347,17 +347,90 @@ git push -u origin main
 
 ## Versione 6
 
-**Obiettivo**
+**Obiettivo:**
 
-**Storico dei Tentativi**
+**Storico dei Tentativi:** Mostra all'utente tutti i numeri inseriti precedentemente. 
 
-**Istruzioni**
+**Istruzioni:**
 
-* Utilizza una lista per memorizzare i tentativi dell'utente
-I tentativi sono memorizzati fino a quando l'utente indovina il numero o esaurisce i tentativi ma vengono persi quando viene eseguito il codice successivo
+* Utilizza una lista per memorizzare i tentativi dell'utente.
+I tentativi sono memorizzati fino a quando l'utente indovina il numero o esaurisce i tentativi ma vengono persi quando viene eseguito il codice successivo.
 
 ```csharp
+Random random = new Random();
+int numeroDaIndovinare = 0;
+int punteggio = 0;
+bool haIndovinato = false;
+int tentativi = 0;
+int numeroUtente = 0;
 
+List<int> tentativiUtente = new List<int>(); // creo una lista per memorizzare i tentativi
+
+Console.WriteLine("Scegli il livello di difficolta':");
+Console.WriteLine("1. Facile (1-50, 10 tentativi)");
+Console.WriteLine("2. Medio (1-100, 7 tentativi)");
+Console.WriteLine("3. Difficile (1-200, 5 tentativi)");
+
+int scelta = int.Parse(Console.ReadLine());
+
+switch (scelta)
+{
+    case 1:
+        numeroDaIndovinare = random.Next(1, 51);
+        punteggio = 100;
+        tentativi = 10;
+        break;
+    case 2:
+        numeroDaIndovinare = random.Next(1, 101);
+        punteggio = 100;
+        tentativi = 7;
+        break;
+    case 3:
+        numeroDaIndovinare = random.Next(1, 201);
+        punteggio = 100;
+        tentativi = 5;
+        break;
+    default:
+        Console.WriteLine("Scelta non valida.");
+        break;
+}
+
+Console.WriteLine("Indovina il numero. Punteggio massimo: 100 punti.");
+
+while (!haIndovinato && tentativi > 0)
+{
+    Console.Write("Tentativo: ");
+    numeroUtente = int.Parse(Console.ReadLine());
+    tentativiUtente.Add(numeroUtente); // aggiungo il tentativo alla lista
+    tentativi--;
+
+    if (numeroUtente < numeroDaIndovinare)
+    {
+        Console.WriteLine("Il numero da indovinare e' maggiore.");
+    }
+    else if (numeroUtente > numeroDaIndovinare)
+    {
+        Console.WriteLine("Il numero da indovinare e' minore.");
+    }
+    else
+    {
+        Console.WriteLine($"Hai indovinato! Punteggio: {punteggio}");
+        haIndovinato = true;
+    }
+
+    if (!haIndovinato && tentativi == 0)
+    {
+        Console.WriteLine($"Hai esaurito i tentativi. Il numero era {numeroDaIndovinare}.");
+    }
+}
+
+Console.WriteLine("Tentativi effettuati: ");
+
+// creo un foreach per stampare i tentativi effettuati usando la lista tentativiUtente
+foreach (int tentativo in tentativiUtente)
+{
+    Console.Write($"{tentativo} "); // stampo i tentativi effettuati
+}
 ```
 
 - creo una lista dei num tentativi (nome var "tentativiUtente")
@@ -367,6 +440,146 @@ I tentativi sono memorizzati fino a quando l'utente indovina il numero o esauris
 - aggiungo alla lista tentativi e incremento il numero tentativi
 - faccio inserire il numero all'utente e lo converto in intero
 - creo un foreach per stampare i tentativi effettuati usando la lista "tentativiUtente"
+
+
+## Versione 7
+
+**Obiettivo:**
+
+**Validazione degli input**: Aggiungi controlli per assicurarti che l'utente inserisca un numero valido.
+
+**Istruzioni:**
+
+- Utilizza il metodo `int.TryParse` per convertire l'input dell'utente in un numero intero.
+
+Il TryParse funziona cosi:
+
+```csharp
+/*
+int numeroUtente;
+
+bool successo = int.TryParse(Console.ReadLine(), out numeroUtente);
+
+if (successo)
+{
+    // il numeroUtente e' stato convertito correttamente
+    // posso usare il valore di numeroUtente
+}
+else
+{
+    // l'utente ha inserito un valore non valido
+    Console.WriteLine("Inserisci un numero valido.");
+    continue; // salto il resto del ciclo e vado al prossimo tentativo
+}
+*/
+Random random = new Random();
+int numeroDaIndovinare = 0;
+int punteggio = 0;
+bool haIndovinato = false;
+int tentativi = 0;
+int numeroUtente = 0;
+
+List<int> tentativiUtente = new List<int>();
+
+Console.WriteLine("Scegli il livello di difficolta':");
+Console.WriteLine("1. Facile (1-50, 10 tentativi)");
+Console.WriteLine("2. Medio (1-100, 7 tentativi)");
+Console.WriteLine("3. Difficile (1-200, 5 tentativi)");
+
+// int scelta = int.Parse(Console.ReadLine());
+int scelta = 0; // Inizializzo la variabile scelta a 0
+bool successoLivelloDifficolta = int.TryParse(Console.ReadLine(), out scelta); // TryParse restituisce true se la conversione è riuscita, altrimenti false
+
+// se la conversione non è riuscita oppure la scelta non è compresa tra 1 e 3
+if (!successoLivelloDifficolta || scelta < 1 || scelta > 3)
+{
+    Console.WriteLine("Scelta non valida."); // Stampo un messaggio di errore
+}
+else
+{
+    switch (scelta)
+    {
+        case 1:
+            numeroDaIndovinare = random.Next(1, 51);
+            punteggio = 100;
+            tentativi = 10;
+            break;
+        case 2:
+            numeroDaIndovinare = random.Next(1, 101);
+            punteggio = 100;
+            tentativi = 7;
+            break;
+        case 3:
+            numeroDaIndovinare = random.Next(1, 201);
+            punteggio = 100;
+            tentativi = 5;
+            break;
+        default:
+            Console.WriteLine("Scelta non valida.");
+            break;
+    }
+
+    Console.WriteLine("Indovina il numero. Punteggio massimo: 100 punti.");
+
+    while (!haIndovinato && tentativi > 0)
+    {
+        Console.Write("Tentativo: ");
+        bool successo = int.TryParse(Console.ReadLine(), out numeroUtente); // TryParse restituisce true se la conversione è riuscita, altrimenti false
+
+        if (!successo)
+        {
+            Console.WriteLine("Inserisci un numero valido."); // Se l'utente non ha inserito un numero valido, si salta il tentativo
+            continue; // Salta il resto del ciclo e va al prossimo tentativo
+        }
+
+        tentativiUtente.Add(numeroUtente);
+        tentativi--;
+
+        if (numeroUtente < numeroDaIndovinare)
+        {
+            Console.WriteLine("Il numero da indovinare e' maggiore.");
+        }
+        else if (numeroUtente > numeroDaIndovinare)
+        {
+            Console.WriteLine("Il numero da indovinare e' minore.");
+        }
+        else
+        {
+            Console.WriteLine($"Hai indovinato! Punteggio: {punteggio}");
+            haIndovinato = true;
+        }
+
+        if (!haIndovinato && tentativi == 0)
+        {
+            Console.WriteLine($"Hai esaurito i tentativi. Il numero era {numeroDaIndovinare}.");
+        }
+    }
+
+    Console.WriteLine("Tentativi effettuati: ");
+
+    foreach (int tentativo in tentativiUtente)
+    {
+        Console.Write($"{tentativo} ");
+    }
+}
+```
+
+### Comandi versionamento
+
+```bash
+git add --all
+git commit -m "Indovina Numero: Versione 7"
+git push -u origin main
+```
+
+## Versione 8
+
+**Obiettivo:**
+
+**Ripetizione del Livello:** Chiedi all'utente di inserire il livello di difficoltà finché non sceglie un livello valido.
+
+Se vogliamo che chieda di nuovo il livello di difficoltà quando la scelta non è valida dobbiamo mettere tutto il codice precedente in un ciclo do-while e fare in modo che il ciclo si ripeta finché la scelta non è valida
+
 
 - STOP
 
