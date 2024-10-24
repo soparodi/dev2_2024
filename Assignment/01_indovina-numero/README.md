@@ -270,3 +270,12 @@ while (!haIndovinato)
 ```csharp
 
 ```
+
+- ok 1
+- ok 2
+- ok 3
+
+_prova_
+
+github markdown preview
+markdown preview github styling
