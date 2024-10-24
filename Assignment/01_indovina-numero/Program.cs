@@ -1,4 +1,4 @@
-﻿﻿// possiamo evitare la confusione tra lettere maiuscole e minuscole (S s , N n) convertendo la risposta dell'utente in minuscolo o in maiuscolo cosi
+﻿// possiamo evitare la confusione tra lettere maiuscole e minuscole (S s , N n) convertendo la risposta dell'utente in minuscolo o in maiuscolo cosi
 // risposta = Console.ReadLine().ToLower(); // converto la risposta in minuscolo
 // risposta = Console.ReadLine().ToUpper(); // converto la risposta in maiuscolo
 
