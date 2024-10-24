@@ -366,7 +366,7 @@ I tentativi sono memorizzati fino a quando l'utente indovina il numero o esauris
 - ogni tentativo deve ciclare e poi per ognuno deve andare ad esporre un tentativo (metodo Add)
 - aggiungo alla lista tentativi e incremento il numero tentativi
 - faccio inserire il numero all'utente e lo converto in intero
-
+- creo un foreach per stampare i tentativi effettuati usando la lista "tentativiUtente"
 
 - STOP
 

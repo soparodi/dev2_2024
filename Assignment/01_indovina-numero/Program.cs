@@ -1,40 +1,74 @@
-﻿Random random = new Random(); 
-int numeroDaIndovinare = random.Next(1, 51);
-int tentativi = 10;
+﻿Random random = new Random();
+int numeroDaIndovinare = 0;
+int punteggio = 0;
 bool haIndovinato = false;
+int tentativi = 0;
+int numeroUtente = 0;
 
+List<int> tentativiUtente = new List<int>(); // creo una lista per memorizzare i tentativi
 
-Console.Clear();
+Console.WriteLine("Scegli il livello di difficolta':");
+Console.WriteLine("1. Facile (1-50, 10 tentativi)");
+Console.WriteLine("2. Medio (1-100, 7 tentativi)");
+Console.WriteLine("3. Difficile (1-200, 5 tentativi)");
 
-Console.WriteLine("Indovina il numero (tra 1 e 50). Hai 10 tentativi: ");
+int scelta = int.Parse(Console.ReadLine());
 
-while (!haIndovinato && tentativi < 10)
-
+switch (scelta)
 {
-    Console.WriteLine("Tentativo {0}: ", tentativi - 1);
+    case 1:
+        numeroDaIndovinare = random.Next(1, 51);
+        punteggio = 100;
+        tentativi = 10;
+        break;
+    case 2:
+        numeroDaIndovinare = random.Next(1, 101);
+        punteggio = 100;
+        tentativi = 7;
+        break;
+    case 3:
+        numeroDaIndovinare = random.Next(1, 201);
+        punteggio = 100;
+        tentativi = 5;
+        break;
+    default:
+        Console.WriteLine("Scelta non valida.");
+        break;
+}
 
-    int numeroInserito = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Indovina il numero. Punteggio massimo: 100 punti.");
 
+while (!haIndovinato && tentativi > 0)
+{
+    Console.Write("Tentativo: ");
+    numeroUtente = int.Parse(Console.ReadLine());
+    tentativiUtente.Add(numeroUtente); // aggiungo il tentativo alla lista
     tentativi--;
 
-    if (numeroInserito < numeroDaIndovinare)
+    if (numeroUtente < numeroDaIndovinare)
     {
-        Console.WriteLine("Il numero da indovinare e' maggiore");
+        Console.WriteLine("Il numero da indovinare e' maggiore.");
     }
-    else if (numeroInserito > numeroDaIndovinare)
+    else if (numeroUtente > numeroDaIndovinare)
     {
-        Console.WriteLine("Il numero da indovinare e' minore");
-
-        Console.WriteLine("Riprova: ");
+        Console.WriteLine("Il numero da indovinare e' minore.");
     }
     else
     {
-        Console.WriteLine("Hai indovinato");
+        Console.WriteLine($"Hai indovinato! Punteggio: {punteggio}");
         haIndovinato = true;
     }
 
-    if (tentativi == 0 && !haIndovinato)
+    if (!haIndovinato && tentativi == 0)
     {
-        Console.WriteLine($"Hai finito i punti. Il numero da indovinare era: {numeroDaIndovinare}");
+        Console.WriteLine($"Hai esaurito i tentativi. Il numero era {numeroDaIndovinare}.");
     }
+}
+
+Console.WriteLine("Tentativi effettuati: ");
+
+// creo un foreach per stampare i tentativi effettuati usando la lista tentativiUtente
+foreach (int tentativo in tentativiUtente)
+{
+    Console.Write($"{tentativo} "); // stampo i tentativi effettuati
 }
