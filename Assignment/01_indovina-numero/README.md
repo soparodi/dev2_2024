@@ -345,6 +345,31 @@ git push -u origin main
 ```
 
 
+## Versione 6
+
+**Obiettivo**
+
+**Storico dei Tentativi**
+
+**Istruzioni**
+
+* Utilizza una lista per memorizzare i tentativi dell'utente
+I tentativi sono memorizzati fino a quando l'utente indovina il numero o esaurisce i tentativi ma vengono persi quando viene eseguito il codice successivo
+
+```csharp
+
+```
+
+- creo una lista dei num tentativi (nome var "tentativiUtente")
+- il programma cambia quando nel while inseriamo i tentativi
+- cicliamo in "tentativiUtente" con una nuova var "tentativo" - 'foreach (int tentativo in tentativiUtente)'
+- ogni tentativo deve ciclare e poi per ognuno deve andare ad esporre un tentativo (metodo Add)
+- aggiungo alla lista tentativi e incremento il numero tentativi
+- faccio inserire il numero all'utente e lo converto in intero
+
+
+- STOP
+
 ```csharp
 
 ```
