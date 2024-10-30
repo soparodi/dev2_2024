@@ -55,7 +55,7 @@ do
     Console.WriteLine("Inserisci il tuo nome:");
     string nomeUtente = Console.ReadLine();
 
-    Console.WriteLine("Indovina il numero. Punteggio massimo: 100 punti.");
+    Console.WriteLine("Indovina il numero.");
 
     while (!haIndovinato && tentativi > 0)
     {
@@ -89,7 +89,7 @@ do
         }
         else
         {
-            Console.WriteLine($"Hai indovinato! Punteggio: {punteggio}");
+            Console.WriteLine($"Hai indovinato! Il numero era {numeroDaIndovinare}. Punteggio: {punteggio}");
             haIndovinato = true;
         }
 

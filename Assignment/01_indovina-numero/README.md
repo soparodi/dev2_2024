@@ -1172,12 +1172,12 @@ do
             break;
         case 2:
             numeroDaIndovinare = random.Next(1, 101);
-            punteggio = 100;
+            punteggio = 200;
             tentativi = 7;
             break;
         case 3:
             numeroDaIndovinare = random.Next(1, 201);
-            punteggio = 100;
+            punteggio = 300;
             tentativi = 5;
             break;
         default:
@@ -1210,7 +1210,7 @@ do
             tentativiUtenti.Add(nomeUtente, new List<int>());
         }
 
-        tentativiUtenti[nomeUtente].Add(numeroUtente);
+        tentativiUtenti[nomeUtente].Add(numeroUtente); // aggiungo il tentativo alla lista del nomeUtente uso [nomeUtente] per accedere alla lista del nomeUtente
 
         if (numeroUtente < numeroDaIndovinare)
         {
@@ -1261,14 +1261,31 @@ do
 
     haIndovinato = false;
 
-    tentativiUtenti.Clear(); // cancello i tentativi degli utenti
+    // tentativiUtenti.Clear(); // cancello i tentativi degli utenti
 
 } while (risposta == "s" || risposta == "S");
 ```
+
 differenzio se la lista contiene nome utente o no, con ContainsKey
 tentativiUtenti è il nome del dizionario
 nomeUtente è la chiave
 numeroUtente è il valore
+
+### Comandi versionamento
+
+```bash
+git add --all
+git commit -m "Indovina Numero: Versione 11"
+git push -u origin main
+```
+
+## Versione 13
+
+**Obiettivo:**
+
+**Istruzioni:**
+
+- Far sì che a seconda del livello di difficoltà scelta venga assegnato all'utente il punteggio specificato nello switch (a fine partita)
 
 ---
 
