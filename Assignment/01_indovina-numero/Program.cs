@@ -1,4 +1,4 @@
-﻿﻿Console.Clear();
+﻿Console.Clear();
 Random random = new Random();
 int numeroDaIndovinare = 0;
 int punteggio = 0;
@@ -6,7 +6,7 @@ bool haIndovinato = false;
 int tentativi = 0;
 int numeroUtente = 0;
 
-Dictionary<string, int> punteggiUtenti = new Dictionary<string, int>(); // creo un dizionario per memorizzare i punteggi degli utenti
+Dictionary<string, List<int>> tentativiUtenti = new Dictionary<string, List<int>>(); // creo un dizionario per memorizzare i tentativi degli utenti
 
 string risposta = "s";
 
@@ -52,6 +52,9 @@ do
             break;
     }
 
+    Console.WriteLine("Inserisci il tuo nome:");
+    string nomeUtente = Console.ReadLine();
+
     Console.WriteLine("Indovina il numero. Punteggio massimo: 100 punti.");
 
     while (!haIndovinato && tentativi > 0)
@@ -68,8 +71,13 @@ do
         }
 
         tentativi--;
-        // aggiungo il numero del tentativo al dizionario come chiave
-        punteggiUtenti.Add($"Tentativo {tentativi + 1}", numeroUtente);
+        // aggiungo il tentativo alla lista del nomeUtente
+        if (!tentativiUtenti.ContainsKey(nomeUtente))
+        {
+            tentativiUtenti.Add(nomeUtente, new List<int>());
+        }
+
+        tentativiUtenti[nomeUtente].Add(numeroUtente);
 
         if (numeroUtente < numeroDaIndovinare)
         {
@@ -100,11 +108,10 @@ do
 
     Console.WriteLine("Tentativi effettuati: ");
 
-    foreach (var punteggioUtente in punteggiUtenti)
+    foreach (var tentativoUtente in tentativiUtenti)
     {
-        Console.WriteLine($"{punteggioUtente.Key}: {punteggioUtente.Value}"); // stampo i punteggi degli utenti
+        Console.WriteLine($"{tentativoUtente.Key}: {string.Join(", ", tentativoUtente.Value)}"); // stampo i tentativi degli utenti
     }
-     
 
     Console.WriteLine("Vuoi giocare di nuovo? (s/n)");
 
@@ -121,6 +128,6 @@ do
 
     haIndovinato = false;
 
-    punteggiUtenti.Clear(); // cancello i punteggi degli utenti
+    tentativiUtenti.Clear(); // cancello i tentativi degli utenti
 
 } while (risposta == "s" || risposta == "S");
