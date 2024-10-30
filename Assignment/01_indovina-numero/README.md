@@ -1121,7 +1121,7 @@ git push -u origin main
 
 **Obiettivo:**
 
-**Implementazione di un dizinario che abbia come chiave il nome dell'utente e come valore una lista dei tentativi inseriti dall'utente**
+**Implementazione di un dizionario che abbia come chiave il nome dell'utente e come valore una lista dei tentativi inseriti dall'utente**
 
 **Istruzioni:**
 
@@ -1265,6 +1265,12 @@ do
 
 } while (risposta == "s" || risposta == "S");
 ```
+differenzio se la lista contiene nome utente o no, con ContainsKey
+tentativiUtenti è il nome del dizionario
+nomeUtente è la chiave
+numeroUtente è il valore
+
+---
 
 - ok 1
 - ok 2

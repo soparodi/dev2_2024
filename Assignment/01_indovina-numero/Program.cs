@@ -39,12 +39,12 @@ do
             break;
         case 2:
             numeroDaIndovinare = random.Next(1, 101);
-            punteggio = 100;
+            punteggio = 200;
             tentativi = 7;
             break;
         case 3:
             numeroDaIndovinare = random.Next(1, 201);
-            punteggio = 100;
+            punteggio = 300;
             tentativi = 5;
             break;
         default:
@@ -77,7 +77,7 @@ do
             tentativiUtenti.Add(nomeUtente, new List<int>());
         }
 
-        tentativiUtenti[nomeUtente].Add(numeroUtente);
+        tentativiUtenti[nomeUtente].Add(numeroUtente); // aggiungo il tentativo alla lista del nomeUtente uso [nomeUtente] per accedere alla lista del nomeUtente
 
         if (numeroUtente < numeroDaIndovinare)
         {
@@ -128,6 +128,6 @@ do
 
     haIndovinato = false;
 
-    tentativiUtenti.Clear(); // cancello i tentativi degli utenti
+    // tentativiUtenti.Clear(); // cancello i tentativi degli utenti
 
 } while (risposta == "s" || risposta == "S");
