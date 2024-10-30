@@ -1285,7 +1285,31 @@ git push -u origin main
 
 **Istruzioni:**
 
-- Far sì che a seconda del livello di difficoltà scelta venga assegnato all'utente il punteggio specificato nello switch (a fine partita)
+- Creare un chart mermaid del lavoro svolto
+
+[SYNTAX](https://mermaid.js.org/intro/syntax-reference.html)
+[EDITOR](https://mermaid.live/)
+
+
+```mermaid
+flowchart TD
+    A{Scelgo il livello di difficoltà}
+    A -->|Facile| B[100 punti]
+    A -->|Medio| C[200 punti]
+    A -->|Difficile| D[300 punti]
+    B --> E[10 tentativi]
+    C --> F[7 tentativi]
+    D --> G[5 tentativi]
+    E --> H[Esaurisco i tentativi o indovino il numero]
+    F --> H
+    G --> H
+    H --> I[Vuoi continuare?]
+    I --> J[S]
+    I --> K[N]
+    K --> L[Termina il gioco]
+    J --> A
+```
+
 
 ---
 
