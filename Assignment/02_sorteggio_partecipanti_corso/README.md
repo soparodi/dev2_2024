@@ -27,6 +27,12 @@ git push -u origin main
 
 ## Versione 2
 
+## Obiettivo
+
+- Scrivere un programma che permetta di sorteggiare piu volte i partecipanti del corso da una lista di nomi.
+- Il programma deve chiedere all utente se vuole estrarre un altro partecipante.
+- I nomi dei partecipanti estratti vengono rimossi dalla lista.
+
 ```csharp
 // Creo la lista dei partecipanti
 List<string> partecipanti = new List<string>
