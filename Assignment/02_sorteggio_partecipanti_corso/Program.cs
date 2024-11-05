@@ -1,10 +1,10 @@
 ﻿// Creo la lista dei partecipanti
 List<string> partecipanti = new List<string>
-            {
-                "Adalgisa",
-                "Maria",
-                "Roberto",
-            };
+{
+    "Adalgisa",
+    "Maria",
+    "Roberto",
+};
 
 // Creo un oggetto Random per generare il sorteggio
 Random random = new Random();
@@ -37,7 +37,6 @@ while (partecipanti.Count > 0)
 
     if (risposta != "s")
     {
-        Console.WriteLine("Estrazione terminata dall'utente.");
         break;
     }
 }
