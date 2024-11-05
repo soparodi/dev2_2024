@@ -77,3 +77,11 @@ while (partecipanti.Count > 0)
     }
 }
 ```
+
+## Versione 3
+
+## Obiettivo:
+
+- Scrivere un programma che permetta di sorteggiare i partecipanti del corso da una lista di nomi dividendoli in gruppi.
+- Il programma deve chiedere all'utente il numero di squadre e il numero di partecipanti per squadra.
+- Se il numero dei partecipanti non è divisibile per il numero di squadre, i partecipanti rimanenti vengono assegnati ad un gruppo in modo casuale.
