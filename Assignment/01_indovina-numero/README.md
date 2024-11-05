@@ -1288,6 +1288,7 @@ git push -u origin main
 - Creare un chart mermaid del lavoro svolto
 
 [SYNTAX](https://mermaid.js.org/intro/syntax-reference.html)
+
 [EDITOR](https://mermaid.live/)
 
 
