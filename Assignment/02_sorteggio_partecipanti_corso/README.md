@@ -73,7 +73,6 @@ while (partecipanti.Count > 0)
 
     if (risposta != "s")
     {
-        Console.WriteLine("Estrazione terminata dall'utente.");
         break;
     }
 }
