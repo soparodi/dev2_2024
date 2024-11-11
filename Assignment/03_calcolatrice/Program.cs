@@ -9,6 +9,7 @@ Console.Write("Seleziona un operatore (+, -, *, /): ");
 // usando il char posso usare il readkey per leggere un solo carattere
 char operatore = Console.ReadKey().KeyChar; // keyChar restituisce il carattere premuto dall'utente senza dover premere invio
 Console.WriteLine();
+
 // Esegui l'operazione selezionata
 double risultato = 0;
 switch (operatore)
