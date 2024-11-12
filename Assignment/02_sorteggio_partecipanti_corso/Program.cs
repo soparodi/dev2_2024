@@ -1,44 +1,61 @@
-﻿// Creo la lista dei partecipanti
-List<string> partecipanti = new List<string>
-{
-    "Adalgisa",
-    "Maria",
-    "Filippa",
-    "Roberto",
-    "Isidro",
-    "Oreste",
-    "Esmeralda"
-};
+﻿﻿// creo la lista dei partecipanti
+List<string> partecipanti = new List<string> { "Partecipante 1", "Partecipante 2", "Partecipante 3", "Partecipante 4", "Partecipante 5", "Partecipante 6", "Partecipante 7", "Partecipante 8", "Partecipante 9", "Partecipante 10" };
 
-// Creo un oggetto Random per generare il sorteggio
+// creo un oggetto Random per generare numeri casuali
 Random random = new Random();
 
-// Scelgo il numero di squadre che voglio creare
-ConsoleWriteLine("Inserire il numero di squadre da comporre: ");
-int numeroSquadre = int Parse(ConsoleReadLine);
+// chiedo all'utente il numero di squadre
+Console.WriteLine("Inserisci il numero di squadre:");
+int numeroSquadre = int.Parse(Console.ReadLine());
 
-// Scelgo il numero di partecipanti per squadra
-ConsoleWriteLine("Inserire il numero di partecipanti per squadra: ");
-int partecipantiSquadra = int Parse(ConsoleReadLine);
+// creo un dizionario per le squadre
+Dictionary<int, List<string>> squadre = new Dictionary<int, List<string>>();
 
-// Divido il numero di partecipanti per ogni squadra
-int partecipantiTot = numeroSquadre * partecipantiSquadra;
-
-// Ciclo finché tutti i partecipanti sono assegnati ad una squadra
-while (true)
+// per ogni squadra
+for (int i = 0; i < numeroSquadre; i++)
 {
-    // Estraggo un indice casuale nella lista
-    int index = random.Next(partecipanti.Count);
+    // aggiungo la squadra al dizionario
+    squadre.Add(i + 1, new List<string>());
+}
 
-    // Seleziono il nome dalla lista in base all'indice estratto
-    string partecipanteEstratto = partecipanti[index];
+// calcolo quanti partecipanti ci sono in ogni squadra
+int partecipantiPerSquadra = partecipanti.Count / numeroSquadre;
 
-    // Rimuovo il partecipante estratto dalla lista
-    partecipanti.RemoveAt(index);
+// se il numero di partecipanti non è divisibile per il numero di squadre, aggiungo un partecipante in piu ad una squadra
+int partecipantiInPiu = partecipanti.Count % numeroSquadre;
 
-    // Controllo se ci sono ancora partecipanti nella lista
-    if (partecipanti.Count == 0)
+// per ogni squadra
+for (int i = 0; i < numeroSquadre; i++)
+{
+    // aggiungo i partecipanti
+    for (int j = 0; j < partecipantiPerSquadra; j++)
     {
-        break;
+        // genero un numero casuale tra 0 e il numero di partecipanti rimasti
+        int index = random.Next(partecipanti.Count);
+        // aggiungo il partecipante alla squadra
+        squadre[i + 1].Add(partecipanti[index]);
+        // rimuovo il partecipante dalla lista dei partecipanti
+        partecipanti.RemoveAt(index);
     }
+
+    // se ci sono partecipanti in piu, aggiungo un partecipante in piu alla squadra corrente
+    if (partecipantiInPiu > 0)
+    {
+        // genero un numero casuale tra 0 e il numero di partecipanti rimasti
+        int index = random.Next(partecipanti.Count);
+        // aggiungo il partecipante alla squadra
+        squadre[i + 1].Add(partecipanti[index]);
+        // rimuovo il partecipante dalla lista dei partecipanti
+        partecipanti.RemoveAt(index);
+        // decremento il numero di partecipanti in piu
+        partecipantiInPiu--;
+    }
+
+    // stampo i partecipanti della squadra
+    Console.WriteLine($"Squadra {i + 1}:");
+    foreach (string partecipante in squadre[i + 1])
+    {
+        Console.WriteLine(partecipante);
+    }
+    Console.WriteLine();
 }
