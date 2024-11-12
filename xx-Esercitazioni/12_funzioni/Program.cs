@@ -1,4 +1,4 @@
-﻿/* FUNZIONI
+﻿﻿/* FUNZIONI
 una funzione è un blocco di codice che esegue un codice specifico
 ci sono funzioni che elaborano i dati ma non restituiscono un risultato
 ci sono funzioni che restituiscono un valore
