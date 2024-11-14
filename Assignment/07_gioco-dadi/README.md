@@ -69,3 +69,14 @@ do
 
 } while (risposta == "s" || risposta == "S");
 ```
+
+
+## Versione 3
+
+## Obiettivo:
+
+- implementare un sistema di punteggio
+- il giocatore ed il computer partono da un punteggio di 100 punti
+- al vincitore vengono assegnati 10 punti, più la differenza tra il lancio del dado del giocatore e del computer
+- al perdente vengono sottratti 10 punti, più la differenza tra il lancio del dado del giocatore e del computer
+- ad esempio, se il giocatore fa 6 ed il computer fa 3, il giocatore vince e guadagna 10+3 andando a 113 punti, mentre il computer perde 10+3 andando a 87 punti
