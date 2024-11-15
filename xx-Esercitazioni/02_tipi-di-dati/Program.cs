@@ -80,3 +80,99 @@ Dictionary<string, int> voti = new Dictionary<string, int>(); // dichiarazione d
 // dichiarare le variabili con la notazione CamelCase o PascalCase
 // esempio CamelCase etaStudente
 // esempio PascalCase EtaStudente
+
+
+// METODI DI STRINGA
+// i tipi di dato stringa hanno dei metodi che permettono di eseguire delle operazioni su di essi o ottenere info su di essi
+
+// lenght
+// prende la lunghezza di una stringa
+string nome2 = "nome";
+Console.WriteLine(nome2.Length);
+
+// verifica che non ci sia uno spazio vuoto
+string nome3 = "nome";
+Console.WriteLine(string.IsNullOrWhiteSpace); // output: false - se è true, allora l'utente ha inserito uno spazio vuoto
+
+// tolower
+string nome4 = "nome";
+Console.WriteLine(nome4.ToLower()); // tutto in minuscolo - nome
+
+// toupper
+string nome5 = "nome";
+Console.WriteLine(nome5.ToUpper()); // tutto in maiuscolo - NOME
+
+// trim
+string nome6 = "nome";
+Console.WriteLine(nome6.Trim()); // rimuove gli spazi prima e dopo la stringa (non in mezzo)
+
+// split
+// divide una stringa in base a un separatore
+// tolower
+string nomi1 = "nome1, nome2, nome3";
+string[] nomi2 = nomi1.Split(',');
+
+foreach (string nomi in nomi2)
+{
+Console.WriteLine(nome4.ToLower()); // tutto in minuscolo
+}
+
+// replace
+// sostituisce una stringa in una sottostringa
+string nome7 = "nome";
+Console.WriteLine(nome7.Replace("nome, nome1")); // output: nome1
+
+// substring
+string nome8 = "nome";
+Console.WriteLine(nome7.Substring(0, 3)); // output: nom
+
+// contains
+// verifica se contiene una sottostringa
+string nome9 = "nome";
+Console.WriteLine(nome9.Contains("nom")); // output: true
+
+// indexof
+// restituisce l'indice della prima occorrenza di una sottostringa
+// se non trova la sottostringa restituisce -1
+// se trova piu occorrenze restituisce l'indice della prima occorrenza
+string nome10 = "nome";
+Console.WriteLine(nome10.IndexOf("nome"));
+
+// lastindexof
+// restituisce l'indice dell'ultima sottostringa
+// parte dalla fine della stringa
+string nome11 = "nome";
+Console.WriteLine(nome11.LastIndexOf("o")); // output: 3 - terzo carattere partendo da destra (dalla fine)
+
+// startswith
+// verifica se una stringa inzia con una sottostringa
+string nome12 = "nome";
+Console.WriteLine(nome12.StartsWith("n")); // output: true
+
+// endswith
+// verifica se una stringa finisce con una sottostringa
+string nome13 = "nome";
+Console.WriteLine(nome13.EndsWith("e")); // output: true
+
+/* conversione implicita da int a double
+   conversione esplicita da double a int */
+
+/* tostring/toint - parse - try parse
+- da dato a stringa (funziona con int, double, char, ecc.) / da stringa a intero
+- parse
+- oltre a convertire, restituisce un booleano (es.: out)
+*/
+
+// convert
+// converte un altro tipo di dato (es. stringa) in un altro tipo di dato (es. int)
+// ToInt32
+// startswith
+// verifica se una stringa inzia con una sottostringa
+string eta = "10";
+Console.WriteLine(Convert.ToInt32(eta)); // output: 10
+
+// concatenazione con string.format
+/* stampa per indice, simile al PRINT F di C (Arduino)
+qualora uno voglia ordinarle per indice */
+
+
