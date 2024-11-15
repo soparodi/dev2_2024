@@ -18,6 +18,10 @@ string nome = "Mario"; // dichiarazione e inizializzazione di una variabile di t
 // variabili di tipo booleano
 bool maggiorenne = true; // dichiarazione e inizializzazione di una variabile di tipo booleano
 
+var cognome = "Rossi"; //è compile time: non può cambiare tipo e deve essere inizializzata al momento della dichiarazione
+
+dynamic altezza = 1,70; // è runtime: può cambiare tipo e non necessita di essere inizializzata
+
 // variabili di tipo data
 DateTime dataNascita = new DateTime(2000,1,1); // dichiarazione e inizializzazione di una variabile di tipo data
 
