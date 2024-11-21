@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_indovina-numero", "Assig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_sorteggio-con-funzioni", "Assignment\05_sorteggio-con-funzioni\05_sorteggio-con-funzioni.csproj", "{8B03DFC8-6273-4F04-8177-1692DB5C6C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_generatore-password", "Assignment\09_generatore-password\09_generatore-password.csproj", "{0114E029-AF7B-417F-8B84-9C2EAF6303F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{8B03DFC8-6273-4F04-8177-1692DB5C6C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B03DFC8-6273-4F04-8177-1692DB5C6C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B03DFC8-6273-4F04-8177-1692DB5C6C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0114E029-AF7B-417F-8B84-9C2EAF6303F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0114E029-AF7B-417F-8B84-9C2EAF6303F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0114E029-AF7B-417F-8B84-9C2EAF6303F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0114E029-AF7B-417F-8B84-9C2EAF6303F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3729E6E3-2E1F-4916-A416-9BECDF176F10} = {EC820E32-096A-4572-8883-04B78F40ED93}
@@ -62,5 +68,6 @@ Global
 		{6A69C8CE-1FF2-4416-9B1C-73E297151BDB} = {6788993C-E0F8-4C3B-AF4E-AF8AC86B5C02}
 		{2DE5A977-C454-4A23-920A-7FCCA6D33B8F} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 		{8B03DFC8-6273-4F04-8177-1692DB5C6C8F} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
+		{0114E029-AF7B-417F-8B84-9C2EAF6303F5} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 	EndGlobalSection
 EndGlobal
