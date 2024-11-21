@@ -2,7 +2,7 @@
 
 ## Obiettivo
 
-Programma in c# che genera una password sicura basata sui seguenti criteri:
+Programma in C# che genera una password sicura basata sui seguenti criteri:
 
 - La lunghezza della password deve essere compresa tra 8 e 20 caratteri
 - La password deve contenere almeno:
@@ -31,7 +31,7 @@ string GeneraPassword(int lunghezza)
     string lettereMaiuscole = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     string lettereMinuscole = "abcdefghijklmnopqrstuvwxyz";
     string numeri = "0123456789";
-    string caratteriSpeciali = "!@#$%^&*()-_=+[]{};:,.<>?";
+    string caratteriSpeciali = "!@#$%^&*()-_=+[]{};:,.<>? ";
     string tuttiCaratteri = lettereMaiuscole + lettereMinuscole + numeri + caratteriSpeciali;
 
     // Stringa per costruire la password
