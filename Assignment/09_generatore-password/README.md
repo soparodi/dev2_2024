@@ -29,7 +29,7 @@ string GeneraPassword(int lunghezza)
 
     // Creo dei gruppi di caratteri elencandoli per categoria
     string lettereMaiuscole = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    string lettereMinuscole = "abcdefghijklmnopqrstuvwxyz";
+    string lettereMinuscole = lettereMaiuscole.ToLower();
     string numeri = "0123456789";
     string caratteriSpeciali = "!@#$%^&*()-_=+[]{};:,.<>? ";
     string tuttiCaratteri = lettereMaiuscole + lettereMinuscole + numeri + caratteriSpeciali;
@@ -56,7 +56,7 @@ string GeneraPassword(int lunghezza)
 }
 
 // Genero una password con il numero di caratteri che voglio
-int lunghezzaPassword = 10; // Devo mettere un numero tra 8 e 20 se no non la genera
+int lunghezzaPassword = 12; // Devo mettere un numero tra 8 e 20 se no non la genera
 string passwordSicura = GeneraPassword(lunghezzaPassword);
 
 // Controllo se la funzione ha restituito un errore o una password valida
