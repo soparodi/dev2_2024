@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_generatore-password", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_verifica-competenze-1", "Assignment\13_verifica-competenze-1\13_verifica-competenze-1.csproj", "{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_persistenza-txt", "xx-Esercitazioni\14_persistenza-txt\14_persistenza-txt.csproj", "{77BA9578-1167-4567-A860-332199BDC55F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77BA9578-1167-4567-A860-332199BDC55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BA9578-1167-4567-A860-332199BDC55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BA9578-1167-4567-A860-332199BDC55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BA9578-1167-4567-A860-332199BDC55F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3729E6E3-2E1F-4916-A416-9BECDF176F10} = {EC820E32-096A-4572-8883-04B78F40ED93}
@@ -76,5 +82,6 @@ Global
 		{8B03DFC8-6273-4F04-8177-1692DB5C6C8F} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 		{0114E029-AF7B-417F-8B84-9C2EAF6303F5} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 		{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
+		{77BA9578-1167-4567-A860-332199BDC55F} = {6788993C-E0F8-4C3B-AF4E-AF8AC86B5C02}
 	EndGlobalSection
 EndGlobal
