@@ -1,12 +1,19 @@
-﻿// Leggo i nomi da un file di input
-string inputFilePath = "test.txt";
-if (!File.Exists(inputFilePath))
-{
-    Console.WriteLine("Il file 'test.txt' non esiste.");
-    return;
-}
+﻿// Percorso del file di input
+string path = @"test.txt";
 
-List<string> nomi = new List<string>(File.ReadAllLines(inputFilePath));
+// Creazione del file e inserimento dei nomi
+string[] lines = new string[5]; // Inizializzo un array di 5 elementi
+lines[^5] = "Teresa"; // Inserisco i nomi negli indici appropriati
+lines[^4] = "Oreste";
+lines[^3] = "Adalgisa";
+lines[^2] = "Erasto";
+lines[^1] = "Egle";
+
+// Scrivo i nomi nel file
+File.WriteAllLines(path, lines);
+
+// Leggo i nomi dal file di input
+List<string> nomi = new List<string>(File.ReadAllLines(path));
 
 if (nomi.Count == 0)
 {

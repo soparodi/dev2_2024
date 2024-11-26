@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_persistenza-txt", "xx-Es
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_metodi-file", "xx-Esercitazioni\15_metodi-file\15_metodi-file.csproj", "{B839F6EB-1D24-474C-B2EC-85452FB2A93F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_sorteggio-partecipanti-txt", "Assignment\14_sorteggio-partecipanti-txt\14_sorteggio-partecipanti-txt.csproj", "{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{B839F6EB-1D24-474C-B2EC-85452FB2A93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B839F6EB-1D24-474C-B2EC-85452FB2A93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B839F6EB-1D24-474C-B2EC-85452FB2A93F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3729E6E3-2E1F-4916-A416-9BECDF176F10} = {EC820E32-096A-4572-8883-04B78F40ED93}
@@ -90,5 +96,6 @@ Global
 		{746E73AD-9AF0-49B9-BDCD-E122D89B4BB9} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 		{77BA9578-1167-4567-A860-332199BDC55F} = {6788993C-E0F8-4C3B-AF4E-AF8AC86B5C02}
 		{B839F6EB-1D24-474C-B2EC-85452FB2A93F} = {6788993C-E0F8-4C3B-AF4E-AF8AC86B5C02}
+		{4058EF3F-BA30-48E8-9DEC-B90F0C045C1D} = {B0BAF8D3-E0E7-47BF-B6D7-492BD1EE0A33}
 	EndGlobalSection
 EndGlobal
