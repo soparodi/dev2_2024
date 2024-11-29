@@ -105,8 +105,9 @@ header nav ul li a {
     background-color: #f3aeff;
     margin: 10px;
     display: flex;
-    justify-content: space-around; /* Allinea il testo orizzontalmente */
-    align-items: center; /* Allinea il testo verticalmente */
+    justify-content: space-around; /* Mette l'icona ben separata dal testo */
+    align-items: center; /* Centra il testo */
+    flex-direction: row-reverse;
     font-size: 18px;
     font-family: 'Iceland', sans-serif;
 }
