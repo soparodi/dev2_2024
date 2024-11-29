@@ -499,10 +499,42 @@ div {
 
 Le media query vengono utilizzate per applicare stili diversi in base alle dimensioni del dispositivo.
 
+Le media query piu frequentemente usate sono:
+
+- 576px: dispositivi mobili
+- 768px: tablet
+- 992px: laptop
+- 1400px: desktop
+- da 1400px in su: smart tv
+
 ```css
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 576px) {
     body {
         background-color: lightblue;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    body {
+        background-color: lightyellow;
+    }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1400px) {
+    body {
+        background-color: lightcoral;
+    }
+}
+
+@media screen and (min-width: 1401px) {
+    body {
+        background-color: lightgray;
     }
 }
 ```
