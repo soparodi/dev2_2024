@@ -1,9 +1,9 @@
-﻿Random random = new Random();
+﻿Random random = new Random(); // Usiamo un'unica istanza di Random
+
 int numeroDaIndovinare = 0;
 int punteggio = 0;
 bool haIndovinato = false;
 int tentativi = 0;
-int numeroUtente = 0;
 string nomeUtente = "";
 
 Dictionary<string, List<int>> tentativiUtenti = new Dictionary<string, List<int>>();
@@ -42,11 +42,9 @@ do
 
     StampaTentativi(tentativiUtenti);
 
-    SalvaTentativi(nomeUtente, tentativiUtenti[nomeUtente]);
+    ScriviTentativiSuFile(tentativiUtenti, nomeUtente);
 
     risposta = GiocaAncora();
-
-    haIndovinato = false;
 
 } while (risposta == "s" || risposta == "S");
 
@@ -74,7 +72,6 @@ int ScegliDifficolta()
 
 int GeneraNumeroCasuale(int min, int max)
 {
-    Random random = new Random();
     return random.Next(min, max);
 }
 
@@ -125,8 +122,6 @@ void IndovinaNumero(int numeroDaIndovinare, int tentativi, int punteggio, Dictio
     }
 }
 
-// Chiedo di inserire il nome
-
 string ChiediNomeUtente()
 {
     Console.WriteLine("Inserisci il tuo nome:");
@@ -142,12 +137,28 @@ void StampaTentativi(Dictionary<string, List<int>> tentativiUtenti)
     }
 }
 
-// Creo un file con il nomeUtente dove salvare i tentativi
-void SalvaTentativi(string nomeUtente, List<int> tentativi)
+void ScriviTentativiSuFile(Dictionary<string, List<int>> tentativiUtenti, string nomeUtente)
 {
     string filePath = $"{nomeUtente}.txt";
-    File.WriteAllLines(filePath, tentativi.ConvertAll(t => t.ToString()));
-    Console.WriteLine($"I tentativi sono stati salvati nel file {filePath}.");
+
+    List<string> righe = new List<string>();
+    foreach (var tentativoUtente in tentativiUtenti)
+    {
+        if (tentativoUtente.Key == nomeUtente)
+        {
+            righe.Add($"{tentativoUtente.Key}: {string.Join(", ", tentativoUtente.Value)}");
+        }
+    }
+
+    try
+    {
+        File.AppendAllLines(filePath, righe);
+        Console.WriteLine($"I tentativi per l'utente {nomeUtente} sono stati aggiunti nel file {filePath}.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Errore durante il salvataggio dei tentativi: {ex.Message}");
+    }
 }
 
 string GiocaAncora()
