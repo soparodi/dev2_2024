@@ -140,9 +140,4 @@ footer a {
     text-decoration: none;
     margin: 0 0.5rem;
 }
-
-.box:nth-child(1) {
-    flex: 1; 
-    background-color: #f3aeff;
-}
 ```
