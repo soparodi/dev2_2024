@@ -1,4 +1,4 @@
-/* General Reset */
+/* General Reset */ 
 body,
 h1,
 h2,
@@ -73,13 +73,6 @@ header nav ul li a {
     background: #ff6600;
 }
 
-.image {
-    height: 200px;
-    width: 200px;
-    image-rendering: auto;
-    float: center;
-}
-
 /* Sections */
 .section {
     padding: 2em;
@@ -101,53 +94,21 @@ header nav ul li a {
 .container {
     display: flex;
     justify-content: center;
-    /* Centra gli elementi orizzontalmente */
-    align-items: column;
-    /* Centra gli elementi verticalmente */
-    height: 100vh;
-    /* Imposta l'altezza del container al 100% dell'altezza della viewport */
-    flex-direction: row
-        /* flex-direction: row; */
-}
-
-.box:nth-child(1) {
-    flex: 1; /* riguarda le proporzioni e non misure precise - qui è 1:1 */
-    background-color: none
-}
-
-.box:nth-child(2) {
-    flex: 1;
-    background-color: none
-}
-
-.box:nth-child(3) {
-    flex: 1;
-    background-color: none
-}
-
-.box:nth-child(4) {
-    flex: 1;
-    background-color: none
+    align-items: center; /* Usa 'center' invece di 'column' */
+    height: auto; /* Usa altezza automatica per evitare overflow */
+    flex-wrap: wrap; /* Adatta layout per dispositivi piccoli */
 }
 
 .box {
     width: 100px;
-    /* Larghezza di ogni box */
     height: 100px;
-    /* Altezza di ogni box */
     background-color: #f3aeff;
-    /* Colore di sfondo dei box */
     margin: 10px;
-    /* Spazio tra i box */
     display: flex;
-    justify-content: space-evenly;
-    /* Allinea il testo orizzontalmente */
-    align-items: center;
-    /* Allinea il testo verticalmente */
+    justify-content: center; /* Allinea il testo orizzontalmente */
+    align-items: center; /* Allinea il testo verticalmente */
     font-size: 18px;
-    /* Dimensione del testo */
-    font-family: 'Iceland', sans-serif, bold;
-    /* Tipo di font */
+    font-family: 'Iceland', sans-serif;
 }
 
 /* Contact */
@@ -179,9 +140,19 @@ footer .social-icons a:hover {
     color: #ffd900;
 }
 
+/* Media Queries */
 @media screen and (max-width: 576px) {
     body {
         background-color: lightgrey;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem; /* Riduce la dimensione per schermi piccoli */
+    }
+
+    .box {
+        width: 80px; /* Ridimensiona i box per dispositivi piccoli */
+        height: 80px;
     }
 }
 
