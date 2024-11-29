@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_generatore-password", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_inserimento-dati", "Assignment\10_inserimento-dati\10_inserimento-dati.csproj", "{722AE414-6651-4BF6-88DA-BB382D1A23FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_metodo-verifica-input-generico", "Assignment\11_metodo-verifica-input-generico\11_metodo-verifica-input-generico.csproj", "{D8BE0E8F-D158-4872-BE79-730090352B84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{722AE414-6651-4BF6-88DA-BB382D1A23FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{722AE414-6651-4BF6-88DA-BB382D1A23FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{722AE414-6651-4BF6-88DA-BB382D1A23FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8BE0E8F-D158-4872-BE79-730090352B84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8BE0E8F-D158-4872-BE79-730090352B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8BE0E8F-D158-4872-BE79-730090352B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8BE0E8F-D158-4872-BE79-730090352B84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE2D978A-63D7-4FE7-AD29-60645AED1AEA} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
@@ -86,5 +92,6 @@ Global
 		{F26708B8-1970-4108-810F-29510822E9B6} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 		{502CD5FE-726B-44DB-9895-DD0E94362B01} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 		{722AE414-6651-4BF6-88DA-BB382D1A23FE} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
+		{D8BE0E8F-D158-4872-BE79-730090352B84} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 	EndGlobalSection
 EndGlobal
