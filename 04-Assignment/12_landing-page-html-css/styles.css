@@ -105,11 +105,32 @@ header nav ul li a {
     background-color: #f3aeff;
     margin: 10px;
     display: flex;
-    justify-content: center; /* Allinea il testo orizzontalmente */
+    justify-content: space-around; /* Allinea il testo orizzontalmente */
     align-items: center; /* Allinea il testo verticalmente */
     font-size: 18px;
     font-family: 'Iceland', sans-serif;
 }
+
+.box:nth-child(1) {
+    flex: 1; 
+    background-color: #f3aeff;
+}
+
+.box:nth-child(2) {
+    flex: 1; 
+    background-color: #f3aeff;
+}
+
+.box:nth-child(3) {
+    flex: 1; 
+    background-color: #f3aeff;
+}
+
+.box:nth-child(4) {
+    flex: 1; 
+    background-color: #f3aeff;
+}
+
 
 /* Contact */
 .contact-info {
