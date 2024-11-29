@@ -27,6 +27,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_inserimento-dati", "Assi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_metodo-verifica-input-generico", "Assignment\11_metodo-verifica-input-generico\11_metodo-verifica-input-generico.csproj", "{D8BE0E8F-D158-4872-BE79-730090352B84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_verifica-competenze-1", "Assignment\13_verifica-competenze-1\13_verifica-competenze-1.csproj", "{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_sorteggio-partecipanti-txt", "Assignment\14_sorteggio-partecipanti-txt\14_sorteggio-partecipanti-txt.csproj", "{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_indovina-numero-txt", "Assignment\15_indovina-numero-txt\15_indovina-numero-txt.csproj", "{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +86,18 @@ Global
 		{D8BE0E8F-D158-4872-BE79-730090352B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8BE0E8F-D158-4872-BE79-730090352B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8BE0E8F-D158-4872-BE79-730090352B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE2D978A-63D7-4FE7-AD29-60645AED1AEA} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
@@ -93,5 +111,8 @@ Global
 		{502CD5FE-726B-44DB-9895-DD0E94362B01} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 		{722AE414-6651-4BF6-88DA-BB382D1A23FE} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 		{D8BE0E8F-D158-4872-BE79-730090352B84} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
+		{A3B0746F-3EAF-4419-A2DB-C894CC83F0D7} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
+		{44BDCC7A-12CA-4D58-8FE8-37617B9DAE4F} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
+		{FCFC9AFE-EF2C-41B4-A639-61D4EB1CA053} = {F4FBFCB7-E8C7-456A-9BAC-BC79FCFAE444}
 	EndGlobalSection
 EndGlobal
