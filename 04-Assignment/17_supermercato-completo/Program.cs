@@ -1,46 +1,59 @@
-﻿// Funzione per creare un prodotto
-Dictionary<string, object> CreaProdotto(int id, string nome, decimal prezzo, int quantita)
+﻿using Newtonsoft.Json;
+// Funzione per creare un prodotto
+Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int quantita)
 {
     return new Dictionary<string, object>
-    {
-        { "Id", id },
-        { "Nome", nome },
-        { "Prezzo", prezzo },
-        { "Quantita", quantita }
-    };
+        {
+            { "Id", id },
+            { "Nome", nome },
+            { "Prezzo", prezzo },
+            { "Quantita", quantita }
+        };
 }
 
-// Funzione per salvare il catalogo su file JSON
+// Funzione per salvare un catalogo in formato JSON
 void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 {
-    var json = JsonSerializer.Serialize(catalogo, new JsonSerializerOptions { WriteIndented = true });
-    File.WriteAllText(filePath, json);
+    try
+    {
+        string json = JsonConvert.SerializeObject(catalogo, Formatting.Indented);
+        File.WriteAllText(filePath, json);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Errore durante il salvataggio del catalogo: {ex.Message}");
+    }
 }
 
-// Funzione per caricare il catalogo da file JSON
+// Funzione per caricare un catalogo da file JSON
 List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 {
-    if (!File.Exists(filePath))
+    try
+    {
+        string json = File.ReadAllText(filePath);
+        return JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json) ?? new List<Dictionary<string, object>>();
+    }
+    catch (FileNotFoundException)
     {
         Console.WriteLine("Il file non esiste. Creazione di un catalogo vuoto.");
         return new List<Dictionary<string, object>>();
     }
-
-    var json = File.ReadAllText(filePath);
-    try
+    catch (Exception ex)
     {
-        return JsonSerializer.Deserialize<List<Dictionary<string, object>>>(json) ?? new List<Dictionary<string, object>>();
-    }
-    catch
-    {
-        Console.WriteLine("Errore nella lettura del file JSON. Creazione di un catalogo vuoto.");
+        Console.WriteLine($"Errore durante il caricamento del catalogo: {ex.Message}");
         return new List<Dictionary<string, object>>();
     }
 }
 
-// Funzione per stampare il catalogo
+// Funzione per visualizzare il catalogo
 void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 {
+    if (catalogo.Count == 0)
+    {
+        Console.WriteLine("Il catalogo è vuoto.");
+        return;
+    }
+
     foreach (var prodotto in catalogo)
     {
         Console.WriteLine($"Id: {prodotto["Id"]}, Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
@@ -59,12 +72,12 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
     {
         prodotto["Quantita"] = (int)prodotto["Quantita"] - quantita;
         carrello.Add(new Dictionary<string, object>
-        {
-            { "Id", prodotto["Id"] },
-            { "Nome", prodotto["Nome"] },
-            { "Prezzo", prodotto["Prezzo"] },
-            { "Quantita", quantita }
-        });
+            {
+                { "Id", prodotto["Id"] },
+                { "Nome", prodotto["Nome"] },
+                { "Prezzo", prodotto["Prezzo"] },
+                { "Quantita", quantita }
+            });
     }
     else
     {
@@ -74,18 +87,25 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
 }
 
 // Funzione per calcolare il totale del carrello
-decimal CalcolaTotale(List<Dictionary<string, object>> carrello)
+double CalcolaTotale(List<Dictionary<string, object>> carrello)
 {
-    return carrello.Sum(p => (decimal)p["Prezzo"] * (int)p["Quantita"]);
+    return carrello.Sum(p => (double)p["Prezzo"] * (int)p["Quantita"]);
 }
 
 // Funzione per stampare lo scontrino
-void StampaScontrino(List<Dictionary<string, object>> carrello, decimal totale)
+void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 {
     Console.WriteLine($"Data: {DateTime.Now}");
-    foreach (var prodotto in carrello)
+    if (carrello.Count == 0)
     {
-        Console.WriteLine($"Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
+        Console.WriteLine("Il carrello è vuoto.");
+    }
+    else
+    {
+        foreach (var prodotto in carrello)
+        {
+            Console.WriteLine($"Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
+        }
     }
     Console.WriteLine($"Totale: {totale}€");
 }
@@ -93,29 +113,36 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, decimal totale)
 // Funzione per salvare lo scontrino su file JSON
 void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 {
-    var json = JsonSerializer.Serialize(scontrino, new JsonSerializerOptions { WriteIndented = true });
-    File.WriteAllText(filePath, json);
+    try
+    {
+        string json = JsonConvert.SerializeObject(scontrino, Formatting.Indented);
+        File.WriteAllText(filePath, json);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Errore durante il salvataggio dello scontrino: {ex.Message}");
+    }
 }
 
-// Esempio d'uso delle funzioni
-var catalogo = new List<Dictionary<string, object>>();
-var carrello = new List<Dictionary<string, object>>();
+// Catalogo e carrello
+    var catalogo = new List<Dictionary<string, object>>();
+    var carrello = new List<Dictionary<string, object>>();
 
-// Aggiunta prodotti al catalogo
-catalogo.Add(CreaProdotto(1, "Mela", 0.5m, 100));
-catalogo.Add(CreaProdotto(2, "Pane", 1.0m, 50));
+    // Aggiunta prodotti al catalogo
+    catalogo.Add(CreaProdotto(1, "Mela", 0.5, 100));
+    catalogo.Add(CreaProdotto(2, "Pane", 1.0, 50));
 
-// Visualizza catalogo
-VisualizzaCatalogo(catalogo);
+    // Visualizza catalogo
+    VisualizzaCatalogo(catalogo);
 
-// Aggiungi prodotti al carrello
-carrello = AggiungiAlCarrello(catalogo, 1, 3, carrello);
-carrello = AggiungiAlCarrello(catalogo, 2, 2, carrello);
+    // Aggiungi prodotti al carrello
+    carrello = AggiungiAlCarrello(catalogo, 1, 3, carrello);
+    carrello = AggiungiAlCarrello(catalogo, 2, 2, carrello);
 
-// Calcola il totale e stampa lo scontrino
-var totale = CalcolaTotale(carrello);
-StampaScontrino(carrello, totale);
+    // Calcola il totale e stampa lo scontrino
+    var totale = CalcolaTotale(carrello);
+    StampaScontrino(carrello, totale);
 
-// Salva il catalogo e lo scontrino su file
-SalvaCatalogo("catalogo.json", catalogo);
-SalvaScontrino("scontrino.json", carrello);
+    // Salva il catalogo e lo scontrino su file
+    SalvaCatalogo("catalogo.json", catalogo);
+    SalvaScontrino("scontrino.json", carrello);
