@@ -696,7 +696,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string[] files = Cartella.GetFiles(Cartella.GetCurrentCartella(), "*.csv"); // legge tutti i file csv nella cartella del programma
+        string[] files = Cartella.GetFiles(Cartella.
         foreach (string file in files)
         {
             Console.WriteLine(Path.GetFileName(file)); // stampa solo il nome del file
