@@ -45,7 +45,7 @@ Gestione dello store:
 
 ## Obiettivo:
 
-- Crea una funzione che restituisca un dizionario contenente le informazioni di un prodotto (ID, nome, prezzo e quantità).
+- Creo una funzione che restituisca un dizionario contenente le informazioni di un prodotto (ID, nome, prezzo e quantità).
 - La funzione crea un dizionario con i dettagli di un prodotto, che include Id, Nome, Prezzo, e Quantita.
 - Questo dizionario sarà utilizzato per rappresentare ciascun prodotto nel catalogo e nel carrello.
 
@@ -71,24 +71,18 @@ Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int 
 
 ## Obiettivo:
 
-- Crea una funzione per serializzare il catalogo in formato JSON e salvarlo su un file.
+- Creo una funzione per serializzare il catalogo in formato JSON e salvarlo su un file.
 - La funzione SalvaCatalogo serializza una lista di dizionari (catalogo) in formato JSON.
 - Il JSON risultante viene scritto su un file specificato tramite filePath.
-- Viene gestita un'eccezione per evitare crash nel caso di errori durante il salvataggio.
-
 
 ```csharp
 void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 {
-    try
-    {
-        string json = JsonConvert.SerializeObject(catalogo, Formatting.Indented);
-        File.WriteAllText(filePath, json);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Errore durante il salvataggio del catalogo: {ex.Message}");
-    }
+    // Serializza il catalogo in formato JSON
+    string json = JsonConvert.SerializeObject(catalogo, Formatting.Indented);
+
+    // Scrive il JSON nel file specificato dal percorso (filePath)
+    File.WriteAllText(filePath, json);
 }
 ```
 
@@ -99,36 +93,21 @@ void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 
 ## Obiettivo:
 
-- Crea una funzione per caricare un catalogo da un file JSON e deserializzarlo.
+- Creo una funzione per caricare un catalogo da un file JSON e deserializzarlo.
 - La funzione legge il contenuto del file JSON e lo deserializza in una lista di dizionari.
-- Se il file non esiste o la deserializzazione fallisce, il programma gestisce l'errore e restituisce un catalogo vuoto.
 
 
 ```csharp
 List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 {
-    try
-    {
-        string json = File.ReadAllText(filePath);
-        List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+    // Legge il contenuto del file JSON
+    string json = File.ReadAllText(filePath);
 
-        if (catalogoDeserializzato == null)
-        {
-            return new List<Dictionary<string, object>>(); // Restituisce una lista vuota
-        }
-       
-        return catalogoDeserializzato;
-    }
-    catch (FileNotFoundException)
-    {
-        Console.WriteLine("Il file non esiste. Creazione di un catalogo vuoto.");
-        return new List<Dictionary<string, object>>(); // Restituisce una lista vuota
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Errore durante il caricamento del catalogo: {ex.Message}");
-        return new List<Dictionary<string, object>>(); // Restituisce una lista vuota in caso di errore
-    }
+    // Deserializza il contenuto JSON in una lista di dizionari
+    List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+
+    // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
+    return catalogoDeserializzato;
 }
 ```
 
@@ -139,20 +118,14 @@ List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 
 ## Obiettivo:
 
-- Crea una funzione che visualizzi i dettagli di tutti i prodotti nel catalogo.
+- Creo una funzione che visualizzi i dettagli di tutti i prodotti nel catalogo.
 - La funzione stampa ogni prodotto nel catalogo, mostrando ID, nome, prezzo e quantità.
-- Se il catalogo è vuoto, il programma stampa un messaggio di avviso.
 
 
 ```csharp
 void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 {
-    if (catalogo.Count == 0)
-    {
-        Console.WriteLine("Il catalogo è vuoto.");
-        return;
-    }
-
+    // Scorre i prodotti nel catalogo e li visualizza
     foreach (var prodotto in catalogo)
     {
         Console.WriteLine($"Id: {prodotto["Id"]}, Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
@@ -167,7 +140,7 @@ void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 
 ## Obiettivo:
 
-- Aggiungi un prodotto al carrello, aggiornando il catalogo e il carrello stesso.
+- Aggiungo un prodotto al carrello, aggiornando il catalogo e il carrello stesso.
 - La funzione cerca il prodotto nel catalogo tramite l'ID.
 - Se il prodotto è trovato e la quantità è sufficiente, lo aggiunge al carrello e riduce la quantità nel catalogo.
 
@@ -208,14 +181,23 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
 
 ## Obiettivo:
 
-- Calcolare il totale del carrello.
+- Calcolo il totale del carrello.
 - La funzione somma il prezzo di ogni prodotto nel carrello, moltiplicato per la sua quantità, per calcolare il totale.
 
 
 ```csharp
 double CalcolaTotale(List<Dictionary<string, object>> carrello)
 {
-    return carrello.Sum(p => (double)p["Prezzo"] * (int)p["Quantita"]);
+    double totale = 0;
+
+    // Scorre ogni prodotto nel carrello
+    foreach (var prodotto in carrello)
+    {
+        // Calcola il costo totale per il prodotto e lo aggiunge al totale generale
+        totale += (double)prodotto["Prezzo"] * (int)prodotto["Quantita"];
+    }
+
+    return totale;
 }
 ```
 
@@ -226,7 +208,7 @@ double CalcolaTotale(List<Dictionary<string, object>> carrello)
 
 ## Obiettivo:
 
-- Stampare i dettagli dello scontrino con i prodotti nel carrello e il totale.
+- Stampo i dettagli dello scontrino con i prodotti nel carrello e il totale.
 - La funzione stampa la data attuale, i dettagli di ogni prodotto nel carrello e il totale.
 
 
@@ -258,22 +240,18 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 
 ## Obiettivo:
 
-- Salvare lo scontrino in un file JSON.
+- Salvo lo scontrino in un file JSON.
 - La funzione serializza il carrello in formato JSON e lo salva in un file specificato tramite filePath.
 
 
 ```csharp
 void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 {
-    try
-    {
-        string json = JsonConvert.SerializeObject(scontrino, Formatting.Indented);
-        File.WriteAllText(filePath, json);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Errore durante il salvataggio dello scontrino: {ex.Message}");
-    }
+    // Serializza il carrello (scontrino) in formato JSON
+    string json = JsonConvert.SerializeObject(scontrino, Formatting.Indented);
+
+    // Scrive il JSON nel file specificato
+    File.WriteAllText(filePath, json);
 }
 ```
 
@@ -284,7 +262,7 @@ void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 
 ## Obiettivo:
 
-- Esegue il programma creando un catalogo, aggiungendo prodotti al carrello e salvando i dati.
+- Eseguo il programma creando un catalogo, aggiungendo prodotti al carrello e salvando i dati.
 
 ```csharp
 var catalogo = new List<Dictionary<string, object>>();
@@ -314,7 +292,7 @@ SalvaScontrino("scontrino.json", carrello);
 # PROGRAMMA COMPLETO (da revisionare):
 
 ```csharp
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
 
 // Funzione per creare un prodotto
 Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int quantita)
@@ -332,64 +310,29 @@ Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int 
 // Funzione per salvare un catalogo in formato JSON
 void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 {
-    try
-    {
-        // Serializza il catalogo in formato JSON
-        string json = JsonConvert.SerializeObject(catalogo, Formatting.Indented);
+    // Serializza il catalogo in formato JSON
+    string json = JsonConvert.SerializeObject(catalogo, Formatting.Indented);
 
-        // Scrive il JSON nel file specificato dal percorso (filePath)
-        File.WriteAllText(filePath, json);
-    }
-    catch (Exception ex)
-    {
-        // In caso di errore (ad esempio, se non si può scrivere il file), cattura l'eccezione e stampa un messaggio
-        Console.WriteLine($"Errore durante il salvataggio del catalogo: {ex.Message}");
-    }
+    // Scrive il JSON nel file specificato dal percorso (filePath)
+    File.WriteAllText(filePath, json);
 }
 
 // Funzione per caricare un catalogo da file JSON
 List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 {
-    try
-    {
-        // Legge il contenuto del file JSON
-        string json = File.ReadAllText(filePath);
+    // Legge il contenuto del file JSON
+    string json = File.ReadAllText(filePath);
 
-        // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
-        List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+    // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
+    List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-        // Se la deserializzazione restituisce null, ritorna una lista vuota
-        if (catalogoDeserializzato == null)
-        {
-            return new List<Dictionary<string, object>>(); // Restituisce una lista vuota
-        }
-        
-        // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
-        return catalogoDeserializzato;
-    }
-    catch (FileNotFoundException)
-    {
-        // Se il file non viene trovato, cattura l'eccezione e crea un catalogo vuoto
-        Console.WriteLine("Il file non esiste. Creazione di un catalogo vuoto.");
-        return new List<Dictionary<string, object>>(); // Restituisce una lista vuota
-    }
-    catch (Exception ex)
-    {
-        // In caso di altri errori, cattura l'eccezione e stampa un messaggio di errore
-        Console.WriteLine($"Errore durante il caricamento del catalogo: {ex.Message}");
-        return new List<Dictionary<string, object>>(); // Restituisce una lista vuota in caso di errore
-    }
+    // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
+    return catalogoDeserializzato;
 }
 
 // Funzione per visualizzare il catalogo
 void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 {
-    if (catalogo.Count == 0)
-    {
-        Console.WriteLine("Il catalogo è vuoto.");
-        return;
-    }
-
     // Scorre i prodotti nel catalogo e li visualizza
     foreach (var prodotto in catalogo)
     {
@@ -433,8 +376,16 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
 // Funzione per calcolare il totale del carrello
 double CalcolaTotale(List<Dictionary<string, object>> carrello)
 {
-    // Calcola la somma totale moltiplicando prezzo per quantità per ogni prodotto nel carrello
-    return carrello.Sum(p => (double)p["Prezzo"] * (int)p["Quantita"]);
+    double totale = 0;
+
+    // Scorre ogni prodotto nel carrello
+    foreach (var prodotto in carrello)
+    {
+        // Calcola il costo totale per il prodotto e lo aggiunge al totale generale
+        totale += (double)prodotto["Prezzo"] * (int)prodotto["Quantita"];
+    }
+
+    return totale;
 }
 
 // Funzione per stampare lo scontrino
@@ -462,19 +413,11 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 // Funzione per salvare lo scontrino su file JSON
 void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 {
-    try
-    {
-        // Serializza il carrello (scontrino) in formato JSON
-        string json = JsonConvert.SerializeObject(scontrino, Formatting.Indented);
+    // Serializza il carrello (scontrino) in formato JSON
+    string json = JsonConvert.SerializeObject(scontrino, Formatting.Indented);
 
-        // Scrive il JSON nel file specificato
-        File.WriteAllText(filePath, json);
-    }
-    catch (Exception ex)
-    {
-        // In caso di errore, cattura l'eccezione e stampa un messaggio
-        Console.WriteLine($"Errore durante il salvataggio dello scontrino: {ex.Message}");
-    }
+    // Scrive il JSON nel file specificato
+    File.WriteAllText(filePath, json);
 }
 
 // Catalogo e carrello
