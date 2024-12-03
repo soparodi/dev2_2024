@@ -140,6 +140,30 @@ void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 
 # Versione 5
 
+## Creazione della funzione TrovaProdotto
+
+## Obiettivo:
+
+- Cerco un prodotto nel catalogo.
+- Se la funzione non trova alcun prodotto, restituisce un dizionario vuoto.
+
+```csharp
+// Funzione per trovare un prodotto nel catalogo
+Dictionary<string, object> TrovaProdotto(List<Dictionary<string, object>> catalogo, int id)
+{
+    foreach (var prodotto in catalogo)
+    {
+        if ((int)prodotto["Id"] == id)
+        {
+            return prodotto; // Restituisce il prodotto trovato
+        }
+    }
+    return new Dictionary<string, object>(); // Restituisce un dizionario vuoto se non trovato
+}
+```
+
+# Versione 6
+
 ## Creazione della funzione AggiungiAlCarrello
 
 ## Obiettivo:
@@ -185,7 +209,7 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
 ```
 
 
-# Versione 6
+# Versione 7
 
 ## Creazione della funzione CalcolaTotale
 
@@ -213,7 +237,7 @@ double CalcolaTotale(List<Dictionary<string, object>> carrello)
 ```
 
 
-# Versione 7
+# Versione 8
 
 ## Creazione della funzione StampaScontrino
 
@@ -248,7 +272,7 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 ```
 
 
-# Versione 8
+# Versione 9
 
 ## Creazione della funzione SalvaScontrino
 
@@ -271,13 +295,16 @@ void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 ```
 
 
-# Versione 9
+# Versione 10
 
-## Esecuzione del programma
+## Unire insieme le funzioni create per far funzionare il programma
 
 ## Obiettivo:
 
-- Eseguo il programma creando un catalogo, aggiungendo prodotti al carrello e salvando i dati.
+- Creo un catalogo.
+- Aggiungo i prodotti al carrello.
+- Salvo i dati.
+
 
 ```csharp
 // Catalogo e carrello
@@ -305,7 +332,7 @@ SalvaScontrino("scontrino.json", carrello);
 ```
 
 
-# PROGRAMMA COMPLETO (da revisionare):
+# PROGRAMMA COMPLETO:
 
 ```csharp
 using Newtonsoft.Json;
@@ -354,6 +381,19 @@ void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
     {
         Console.WriteLine($"Id: {prodotto["Id"]}, Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
     }
+}
+
+// Funzione per trovare un prodotto nel catalogo
+Dictionary<string, object> TrovaProdotto(List<Dictionary<string, object>> catalogo, int id)
+{
+    foreach (var prodotto in catalogo)
+    {
+        if ((int)prodotto["Id"] == id)
+        {
+            return prodotto; // Restituisce il prodotto trovato
+        }
+    }
+    return new Dictionary<string, object>(); // Restituisce un dizionario vuoto se non trovato
 }
 
 // Funzione per aggiungere un prodotto al carrello

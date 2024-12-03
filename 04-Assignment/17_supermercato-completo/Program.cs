@@ -46,6 +46,19 @@ void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
     }
 }
 
+// Funzione per trovare un prodotto nel catalogo
+Dictionary<string, object> TrovaProdotto(List<Dictionary<string, object>> catalogo, int id)
+{
+    foreach (var prodotto in catalogo)
+    {
+        if ((int)prodotto["Id"] == id)
+        {
+            return prodotto; // Restituisce il prodotto trovato
+        }
+    }
+    return new Dictionary<string, object>(); // Restituisce un dizionario vuoto se non trovato
+}
+
 // Funzione per aggiungere un prodotto al carrello
 List<Dictionary<string, object>> AggiungiAlCarrello(
     List<Dictionary<string, object>> catalogo,
