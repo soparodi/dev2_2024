@@ -32,7 +32,7 @@ List<Dictionary<string, object>> CaricaCatalogo(string filePath)
     // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
     List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-    // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
+    // Restituisce il catalogo deserializzato
     return catalogoDeserializzato;
 }
 

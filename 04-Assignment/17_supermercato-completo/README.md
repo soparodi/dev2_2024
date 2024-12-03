@@ -51,9 +51,10 @@ Gestione dello store:
 
 
 ```csharp
-
+// Funzione per creare un prodotto
 Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int quantita)
 {
+    // Restituisce un dizionario con le informazioni del prodotto
     return new Dictionary<string, object>
     {
         { "Id", id },
@@ -76,6 +77,7 @@ Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int 
 - Il JSON risultante viene scritto su un file specificato tramite filePath.
 
 ```csharp
+// Funzione per salvare un catalogo in formato JSON
 void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 {
     // Serializza il catalogo in formato JSON
@@ -98,15 +100,16 @@ void SalvaCatalogo(string filePath, List<Dictionary<string, object>> catalogo)
 
 
 ```csharp
+// Funzione per caricare un catalogo da file JSON
 List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 {
     // Legge il contenuto del file JSON
     string json = File.ReadAllText(filePath);
 
-    // Deserializza il contenuto JSON in una lista di dizionari
+    // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
     List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-    // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
+    // Restituisce il catalogo deserializzato
     return catalogoDeserializzato;
 }
 ```
@@ -123,6 +126,7 @@ List<Dictionary<string, object>> CaricaCatalogo(string filePath)
 
 
 ```csharp
+// Funzione per visualizzare il catalogo
 void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 {
     // Scorre i prodotti nel catalogo e li visualizza
@@ -146,18 +150,23 @@ void VisualizzaCatalogo(List<Dictionary<string, object>> catalogo)
 
 
 ```csharp
+// Funzione per aggiungere un prodotto al carrello
 List<Dictionary<string, object>> AggiungiAlCarrello(
     List<Dictionary<string, object>> catalogo,
     int id,
     int quantita,
     List<Dictionary<string, object>> carrello)
 {
+    // Cerca il prodotto nel catalogo in base all'ID
     var prodotto = catalogo.FirstOrDefault(p => (int)p["Id"] == id);
 
+    // Verifica se il prodotto esiste e se la quantità richiesta è disponibile
     if (prodotto != null && (int)prodotto["Quantita"] >= quantita)
     {
+        // Riduce la quantità disponibile nel catalogo
         prodotto["Quantita"] = (int)prodotto["Quantita"] - quantita;
 
+        // Aggiunge il prodotto al carrello
         carrello.Add(new Dictionary<string, object>
         {
             { "Id", prodotto["Id"] },
@@ -168,6 +177,7 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
     }
     else
     {
+        // Se non ci sono sufficienti scorte o il prodotto non è trovato, stampa un messaggio di errore
         Console.WriteLine("Quantità insufficiente o prodotto non trovato.");
     }
     return carrello;
@@ -186,6 +196,7 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
 
 
 ```csharp
+// Funzione per calcolare il totale del carrello
 double CalcolaTotale(List<Dictionary<string, object>> carrello)
 {
     double totale = 0;
@@ -213,8 +224,10 @@ double CalcolaTotale(List<Dictionary<string, object>> carrello)
 
 
 ```csharp
+// Funzione per stampare lo scontrino
 void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 {
+    // Stampa la data e ora attuale
     Console.WriteLine($"Data: {DateTime.Now}");
 
     if (carrello.Count == 0)
@@ -223,12 +236,13 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
     }
     else
     {
+        // Stampa i dettagli di ogni prodotto nel carrello
         foreach (var prodotto in carrello)
         {
             Console.WriteLine($"Nome: {prodotto["Nome"]}, Prezzo: {prodotto["Prezzo"]}€, Quantità: {prodotto["Quantita"]}");
         }
     }
-
+    // Stampa il totale
     Console.WriteLine($"Totale: {totale}€");
 }
 ```
@@ -245,6 +259,7 @@ void StampaScontrino(List<Dictionary<string, object>> carrello, double totale)
 
 
 ```csharp
+// Funzione per salvare lo scontrino su file JSON
 void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 {
     // Serializza il carrello (scontrino) in formato JSON
@@ -265,6 +280,7 @@ void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 - Eseguo il programma creando un catalogo, aggiungendo prodotti al carrello e salvando i dati.
 
 ```csharp
+// Catalogo e carrello
 var catalogo = new List<Dictionary<string, object>>();
 var carrello = new List<Dictionary<string, object>>();
 
@@ -326,7 +342,7 @@ List<Dictionary<string, object>> CaricaCatalogo(string filePath)
     // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
     List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
-    // Se la deserializzazione è andata a buon fine, restituisce il catalogo deserializzato
+    // Restituisce il catalogo deserializzato
     return catalogoDeserializzato;
 }
 
