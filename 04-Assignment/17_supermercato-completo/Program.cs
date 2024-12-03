@@ -29,7 +29,7 @@ List<Dictionary<string, object>> CaricaCatalogo(string filePath)
     // Legge il contenuto del file JSON
     string json = File.ReadAllText(filePath);
 
-    // Deserializza il contenuto JSON nel formato appropriato (una lista di dizionari)
+    // Deserializza il contenuto JSON in una lista di dizionari
     List<Dictionary<string, object>> catalogoDeserializzato = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
 
     // Restituisce il catalogo deserializzato
@@ -66,16 +66,14 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
     int quantita,
     List<Dictionary<string, object>> carrello)
 {
-    // Cerca il prodotto nel catalogo in base all'ID
-    var prodotto = catalogo.FirstOrDefault(p => (int)p["Id"] == id);
+    // Trova il prodotto nel catalogo
+    var prodotto = TrovaProdotto(catalogo, id);
 
     // Verifica se il prodotto esiste e se la quantità richiesta è disponibile
-    if (prodotto != null && (int)prodotto["Quantita"] >= quantita)
+    if (prodotto.Count > 0 && (int)prodotto["Quantita"] >= quantita)
     {
-        // Riduce la quantità disponibile nel catalogo
         prodotto["Quantita"] = (int)prodotto["Quantita"] - quantita;
 
-        // Aggiunge il prodotto al carrello
         carrello.Add(new Dictionary<string, object>
         {
             { "Id", prodotto["Id"] },
@@ -86,7 +84,6 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
     }
     else
     {
-        // Se non ci sono sufficienti scorte o il prodotto non è trovato, stampa un messaggio di errore
         Console.WriteLine("Quantità insufficiente o prodotto non trovato.");
     }
     return carrello;
