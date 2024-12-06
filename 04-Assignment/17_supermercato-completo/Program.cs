@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using Newtonsoft.Json; 
 
 // Funzione per creare un prodotto
 Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int quantita)
@@ -140,22 +140,46 @@ void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 var catalogo = new List<Dictionary<string, object>>();
 var carrello = new List<Dictionary<string, object>>();
 
-// Aggiunta prodotti al catalogo - implementare logica di ifFile.Exsists che se il file catalogo.json esiste già, non ne crei un altro
-catalogo.Add(CreaProdotto(1, "Mela", 0.5, 100));
-catalogo.Add(CreaProdotto(2, "Pane", 1.0, 50));
+// Verifica se il file catalogo.json esiste già
+if (File.Exists("catalogo.json"))
+{
+    // Carica il catalogo dal file
+    catalogo = CaricaCatalogo("catalogo.json");
+    Console.WriteLine("Catalogo caricato dal file esistente:");
+}
+else
+{
+    // Crea un nuovo catalogo
+    catalogo.Add(CreaProdotto(1, "Mela", 0.5, 100));
+    catalogo.Add(CreaProdotto(2, "Pane", 1.0, 50));
+    Console.WriteLine("Nuovo catalogo creato.");
+    SalvaCatalogo("catalogo.json", catalogo);
+}
 
-// Visualizza catalogo
+// Visualizza il catalogo
 VisualizzaCatalogo(catalogo);
 
-// Aggiungi prodotti al carrello - posizionarlo all'interno della funzione che aggiunge al carrello oppure gestire l'input dell'utente esternamente
-carrello = AggiungiAlCarrello(catalogo, 1, 7, carrello);
-carrello = AggiungiAlCarrello(catalogo, 2, 5, carrello);
+// Gestione dell'input dell'utente per aggiungere prodotti al carrello
+while (true)
+{
+    Console.WriteLine("Vuoi aggiungere un prodotto al carrello? (sì/no)");
+    string risposta = Console.ReadLine()?.ToLower();
 
+    if (risposta == "no") break;
+
+    Console.Write("Inserisci l'Id del prodotto: ");
+    int id = int.Parse(Console.ReadLine() ?? "0");
+
+    Console.Write("Inserisci la quantità desiderata: ");
+    int quantita = int.Parse(Console.ReadLine() ?? "0");
+
+    carrello = AggiungiAlCarrello(catalogo, id, quantita, carrello);
+}
 
 // Calcola il totale e stampa lo scontrino
 var totale = CalcolaTotale(carrello);
 StampaScontrino(carrello, totale);
 
-// Salva il catalogo e lo scontrino su file
+// Salva lo stato aggiornato del catalogo e il carrello
 SalvaCatalogo("catalogo.json", catalogo);
 SalvaScontrino("scontrino.json", carrello);

@@ -665,3 +665,5 @@ StampaScontrino(carrello, totale);
 SalvaCatalogo("catalogo.json", catalogo);
 SalvaScontrino("scontrino.json", carrello);
 ```
+
+--
