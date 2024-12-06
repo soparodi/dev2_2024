@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json; 
 
 // Funzione per creare un prodotto
-Dictionary<string, object> CreaProdotto(int id, string nome, double prezzo, int quantita)
+Dictionary<string, object> CreaProdotto(long id, string nome, double prezzo, long quantita)
 {
     // Restituisce un dizionario con le informazioni del prodotto
     return new Dictionary<string, object>
@@ -51,7 +51,7 @@ Dictionary<string, object> TrovaProdotto(List<Dictionary<string, object>> catalo
 {
     foreach (var prodotto in catalogo)
     {
-        if ((int)prodotto["Id"] == id)
+        if ((long)prodotto["Id"] == id)
         {
             return prodotto; // Restituisce il prodotto trovato
         }
@@ -70,9 +70,9 @@ List<Dictionary<string, object>> AggiungiAlCarrello(
     var prodotto = TrovaProdotto(catalogo, id);
 
     // Verifica se il prodotto esiste e se la quantità richiesta è disponibile
-    if (prodotto.Count > 0 && (int)prodotto["Quantita"] >= quantita)
+    if (prodotto.Count > 0 && (long)prodotto["Quantita"] >= quantita)
     {
-        prodotto["Quantita"] = (int)prodotto["Quantita"] - quantita;
+        prodotto["Quantita"] = (long)prodotto["Quantita"] - quantita;
 
         carrello.Add(new Dictionary<string, object>
         {
@@ -168,10 +168,10 @@ while (true)
     if (risposta == "no") break;
 
     Console.Write("Inserisci l'Id del prodotto: ");
-    int id = int.Parse(Console.ReadLine() ?? "0");
+    int id = int.Parse(Console.ReadLine());
 
     Console.Write("Inserisci la quantità desiderata: ");
-    int quantita = int.Parse(Console.ReadLine() ?? "0");
+    int quantita = int.Parse(Console.ReadLine());
 
     carrello = AggiungiAlCarrello(catalogo, id, quantita, carrello);
 }

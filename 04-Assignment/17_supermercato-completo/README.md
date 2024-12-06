@@ -331,6 +331,67 @@ SalvaScontrino("scontrino.json", carrello);
 ```
 
 
+# Versione 11
+
+## Modificare il programma affinchè usi il catologo esistente
+
+## Obiettivo:
+
+- Implementare la logica di if File.Exsists che, se il file catalogo.json esiste già, non ne crei un altro.
+- Nel carrello, gestire l'input dell'utente esternamente.
+- Il ciclo continua fino a quando l'utente decide di terminare.
+
+
+```csharp
+// Catalogo e carrello
+var catalogo = new List<Dictionary<string, object>>();
+var carrello = new List<Dictionary<string, object>>();
+
+// Verifica se il file catalogo.json esiste già
+if (File.Exists("catalogo.json"))
+{
+    // Carica il catalogo dal file
+    catalogo = CaricaCatalogo("catalogo.json");
+    Console.WriteLine("Catalogo caricato dal file esistente:");
+}
+else
+{
+    // Crea un nuovo catalogo
+    catalogo.Add(CreaProdotto(1, "Mela", 0.5, 100));
+    catalogo.Add(CreaProdotto(2, "Pane", 1.0, 50));
+    Console.WriteLine("Nuovo catalogo creato.");
+    SalvaCatalogo("catalogo.json", catalogo);
+}
+
+// Visualizza il catalogo
+VisualizzaCatalogo(catalogo);
+
+// Gestione dell'input dell'utente per aggiungere prodotti al carrello
+while (true)
+{
+    Console.WriteLine("Vuoi aggiungere un prodotto al carrello? (sì/no)");
+    string risposta = Console.ReadLine()?.ToLower();
+
+    if (risposta == "no") break;
+
+    Console.Write("Inserisci l'Id del prodotto: ");
+    int id = int.Parse(Console.ReadLine() ?? "0");
+
+    Console.Write("Inserisci la quantità desiderata: ");
+    int quantita = int.Parse(Console.ReadLine() ?? "0");
+
+    carrello = AggiungiAlCarrello(catalogo, id, quantita, carrello);
+}
+
+// Calcola il totale e stampa lo scontrino
+var totale = CalcolaTotale(carrello);
+StampaScontrino(carrello, totale);
+
+// Salva lo stato aggiornato del catalogo e il carrello
+SalvaCatalogo("catalogo.json", catalogo);
+SalvaScontrino("scontrino.json", carrello);
+```
+
 # PROGRAMMA COMPLETO:
 
 ```csharp
