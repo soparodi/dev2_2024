@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19_pers-json", "04-Esercita
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_supermercato-completo", "04-Assignment\17_supermercato-completo\17_supermercato-completo.csproj", "{4EA42D51-C9E8-46A6-8CA4-1FA6E4143B98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_supermercato_completo_esempio", "04-Assignment\17_01_supermercato_completo_esempio\17_supermercato_completo_esempio.csproj", "{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -214,6 +216,10 @@ Global
 		{4EA42D51-C9E8-46A6-8CA4-1FA6E4143B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EA42D51-C9E8-46A6-8CA4-1FA6E4143B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EA42D51-C9E8-46A6-8CA4-1FA6E4143B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{08B232C8-D4FF-42C8-8C1C-27453B17666F} = {FC028E7E-A871-46A7-BA6E-86F82209C51A}
@@ -249,5 +255,6 @@ Global
 		{7F31F208-8051-44E1-8E93-364D381175EC} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
 		{931AF2DB-67D6-4F5B-BC25-1E63B1D629F5} = {FC028E7E-A871-46A7-BA6E-86F82209C51A}
 		{4EA42D51-C9E8-46A6-8CA4-1FA6E4143B98} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
+		{F28CFDDD-270F-4697-B2F9-2252A2B9CDBF} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
 	EndGlobalSection
 EndGlobal

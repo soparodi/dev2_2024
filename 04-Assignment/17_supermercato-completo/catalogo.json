@@ -3,12 +3,12 @@
     "Id": 1,
     "Nome": "Mela",
     "Prezzo": 0.5,
-    "Quantita": 97
+    "Quantita": 93
   },
   {
     "Id": 2,
     "Nome": "Pane",
     "Prezzo": 1.0,
-    "Quantita": 48
+    "Quantita": 45
   }
 ]

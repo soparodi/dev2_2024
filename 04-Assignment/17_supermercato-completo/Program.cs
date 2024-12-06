@@ -140,16 +140,17 @@ void SalvaScontrino(string filePath, List<Dictionary<string, object>> scontrino)
 var catalogo = new List<Dictionary<string, object>>();
 var carrello = new List<Dictionary<string, object>>();
 
-// Aggiunta prodotti al catalogo
+// Aggiunta prodotti al catalogo - implementare logica di ifFile.Exsists che se il file catalogo.json esiste già, non ne crei un altro
 catalogo.Add(CreaProdotto(1, "Mela", 0.5, 100));
 catalogo.Add(CreaProdotto(2, "Pane", 1.0, 50));
 
 // Visualizza catalogo
 VisualizzaCatalogo(catalogo);
 
-// Aggiungi prodotti al carrello
-carrello = AggiungiAlCarrello(catalogo, 1, 3, carrello);
-carrello = AggiungiAlCarrello(catalogo, 2, 2, carrello);
+// Aggiungi prodotti al carrello - posizionarlo all'interno della funzione che aggiunge al carrello oppure gestire l'input dell'utente esternamente
+carrello = AggiungiAlCarrello(catalogo, 1, 7, carrello);
+carrello = AggiungiAlCarrello(catalogo, 2, 5, carrello);
+
 
 // Calcola il totale e stampa lo scontrino
 var totale = CalcolaTotale(carrello);
