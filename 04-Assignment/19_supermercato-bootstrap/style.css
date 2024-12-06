@@ -1,0 +1,56 @@
+/* Imposta il font Roboto */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Stili per l'header */
+.hero {
+    background: url('https://via.placeholder.com/1920x1080') center center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero .btn {
+    margin-top: 20px;
+}
+
+/* Stili per le icone */
+.icon {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Stili per la sezione dei piani */
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Stili per le progress bars */
+.progress-bar {
+    font-weight: bold;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+}
