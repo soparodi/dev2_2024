@@ -1,32 +1,32 @@
 [
-    {
-      "Id": 1,
-      "NomeProdotto": "prodotto1",
-      "PrezzoProdotto": 1.0,
-      "GiacenzaProdotto": 1
-    },
-    {
-      "Id": 2,
-      "NomeProdotto": "prodotto2",
-      "PrezzoProdotto": 1.0,
-      "GiacenzaProdotto": 1
-    },
-    {
-      "Id": 3,
-      "NomeProdotto": "prodotto3",
-      "PrezzoProdotto": 1.0,
-      "GiacenzaProdotto": 1
-    },
-    {
-      "Id": 4,
-      "NomeProdotto": "prodotto4",
-      "PrezzoProdotto": 1.0,
-      "GiacenzaProdotto": 1
-    },
-    {
-      "Id": 5,
-      "NomeProdotto": "prodotto5",
-      "PrezzoProdotto": 5.0,
-      "GiacenzaProdotto": 5
-    }
-  ]
+  {
+    "Id": 1,
+    "NomeProdotto": "prodotto1",
+    "PrezzoProdotto": 1.0,
+    "GiacenzaProdotto": 1
+  },
+  {
+    "Id": 2,
+    "NomeProdotto": "prodotto2",
+    "PrezzoProdotto": 1.0,
+    "GiacenzaProdotto": 1
+  },
+  {
+    "Id": 3,
+    "NomeProdotto": "prodotto3",
+    "PrezzoProdotto": 1.0,
+    "GiacenzaProdotto": 1
+  },
+  {
+    "Id": 4,
+    "NomeProdotto": "prodotto4",
+    "PrezzoProdotto": 1.0,
+    "GiacenzaProdotto": 1
+  },
+  {
+    "Id": 5,
+    "NomeProdotto": "prodotto5",
+    "PrezzoProdotto": 5.0,
+    "GiacenzaProdotto": 5
+  }
+]
