@@ -1,0 +1,1 @@
+﻿// Versione su GitHub
