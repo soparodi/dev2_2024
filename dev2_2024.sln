@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "28_classi-9", "04-Assignmen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_02_supermercato_advanced", "04-Assignment\17_02_supermercato_advanced\17_02_supermercato_advanced.csproj", "{2E273209-4F7F-4654-87C6-33674093D666}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_03_supermercato-con-classi", "04-Assignment\17_03_supermercato-con-classi\17_03_supermercato-con-classi.csproj", "{EE070CA8-CB6D-4502-9078-833B174D1802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -280,6 +282,10 @@ Global
 		{2E273209-4F7F-4654-87C6-33674093D666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E273209-4F7F-4654-87C6-33674093D666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E273209-4F7F-4654-87C6-33674093D666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE070CA8-CB6D-4502-9078-833B174D1802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE070CA8-CB6D-4502-9078-833B174D1802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE070CA8-CB6D-4502-9078-833B174D1802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE070CA8-CB6D-4502-9078-833B174D1802}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{08B232C8-D4FF-42C8-8C1C-27453B17666F} = {FC028E7E-A871-46A7-BA6E-86F82209C51A}
@@ -326,5 +332,6 @@ Global
 		{7C755C7B-2270-46D1-A765-46BBEAB73BC8} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
 		{387388CE-8348-4108-995E-B02A6B12EB50} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
 		{2E273209-4F7F-4654-87C6-33674093D666} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
+		{EE070CA8-CB6D-4502-9078-833B174D1802} = {0F52F89E-5BC8-40E7-9EB5-D698E9EBA903}
 	EndGlobalSection
 EndGlobal
