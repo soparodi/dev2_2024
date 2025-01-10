@@ -183,3 +183,5 @@ StampaScontrino(carrello, totale);
 // Salva lo stato aggiornato del catalogo e il carrello
 SalvaCatalogo("catalogo.json", catalogo);
 SalvaScontrino("scontrino.json", carrello);
+
+// MVC - REFACTORING - Alt+freccia sposta selezione

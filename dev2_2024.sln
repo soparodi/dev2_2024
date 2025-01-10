@@ -95,8 +95,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "28_classi-9", "04-Assignmen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_02_supermercato_advanced", "04-Assignment\17_02_supermercato_advanced\17_02_supermercato_advanced.csproj", "{2E273209-4F7F-4654-87C6-33674093D666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_03_supermercato-con-classi", "04-Assignment\17_03_supermercato-con-classi\17_03_supermercato-con-classi.csproj", "{EE070CA8-CB6D-4502-9078-833B174D1802}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
